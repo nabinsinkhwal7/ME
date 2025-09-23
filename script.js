@@ -89,10 +89,6 @@ function openGame(gameType) {
             container.innerHTML = createTicTacToe();
             initTicTacToe();
             break;
-        case 'chess':
-            container.innerHTML = createChessPuzzle();
-            initChessPuzzle();
-            break;
         case 'memory':
             container.innerHTML = createMemoryGame();
             initMemoryGame();
@@ -110,6 +106,15 @@ window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = 'none';
     }
+}
+
+// Smooth scroll to About section
+function scrollToAbout() {
+    const aboutSection = document.getElementById('about-section');
+    aboutSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
 }
 
 // Tic-Tac-Toe Game
@@ -324,66 +329,6 @@ function resetTicTacToe() {
     
     const statusText = gameMode === 'friend' ? 'Player X\'s turn' : 'Your turn (X)';
     document.getElementById('ticStatus').textContent = statusText;
-}
-
-// Chess Puzzle Game
-function createChessPuzzle() {
-    return `
-        <div style="text-align: center; color: white;">
-            <h2 style="color: #00bcd4; margin-bottom: 20px;">♟️ Chess Puzzle</h2>
-            <p style="margin-bottom: 20px;">Find checkmate in 2 moves!</p>
-            <div id="chessPuzzle" style="display: grid; grid-template-columns: repeat(8, 40px); gap: 1px; justify-content: center; margin: 20px 0; border: 2px solid #00bcd4; background: #00bcd4;">
-                ${createChessBoard()}
-            </div>
-            <div id="chessStatus" style="font-size: 16px; margin: 20px 0; color: #00bcd4;">White to move. Find mate in 2!</div>
-            <button onclick="showChessSolution()" style="padding: 10px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">Show Solution</button>
-            <button onclick="resetChessPuzzle()" style="padding: 10px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">New Puzzle</button>
-        </div>
-    `;
-}
-
-function createChessBoard() {
-    const pieces = [
-        '♜','♞','♝','♛','♚','♝','♞','♜',
-        '♟','♟','♟','♟','♟','♟','♟','♟',
-        '','','','','','','','',
-        '','','','','','','','',
-        '','','','','','','','',
-        '','','','','','','','',
-        '♙','♙','♙','♙','♙','♙','♙','♙',
-        '♖','♘','♗','♕','♔','♗','♘','♖'
-    ];
-    
-    // Simplified puzzle position
-    const puzzle = [
-        '','','','','♚','','','',
-        '','','','','','','','',
-        '','','','','','','','',
-        '','','','','','','','',
-        '','','','','','','','',
-        '','','','','♕','','','',
-        '','','','','','','','',
-        '','','','','♔','','','♖'
-    ];
-    
-    return puzzle.map((piece, i) => {
-        const isLight = (Math.floor(i/8) + i%8) % 2 === 0;
-        const bgColor = isLight ? 'rgba(240,217,181,0.8)' : 'rgba(181,136,99,0.8)';
-        return `<div style="width: 40px; height: 40px; background: ${bgColor}; display: flex; align-items: center; justify-content: center; font-size: 20px;">${piece}</div>`;
-    }).join('');
-}
-
-function initChessPuzzle() {
-    document.getElementById('chessStatus').textContent = 'White to move. Find mate in 2!';
-}
-
-function showChessSolution() {
-    document.getElementById('chessStatus').innerHTML = 'Solution: 1. Qe5+ (check) and then 2. Qe8# (checkmate)! 🎉';
-}
-
-function resetChessPuzzle() {
-    document.getElementById('chessPuzzle').innerHTML = createChessBoard();
-    document.getElementById('chessStatus').textContent = 'White to move. Find mate in 2!';
 }
 
 // Memory Game

@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.glow-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(200, 200, 200, 0), rgba(200, 200, 200, 0.5), rgba(200, 200, 200, 0));
+    opacity: 0;
+    animation: glow 2s forwards;
+}
+
+@keyframes glow {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.title {
+    font-size: 4rem;
+    background: linear-gradient(white, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: fade-in 2s forwards, title-animate 3s infinite alternate;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes title-animate {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.content {
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.content a {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.content a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+}

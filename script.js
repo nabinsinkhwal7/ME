@@ -136,17 +136,19 @@ function scrollToAbout() {
 function openProjectDetails(projectId) {
     const projectData = {
         school360: {
-            title: 'School360 - Complete School Management System',
-            description: 'A comprehensive web-based solution designed specifically for educational institutions to streamline their administrative processes and improve operational efficiency.',
+            title: 'School360 - Student Fee & Billing Management System',
+            description: 'One of my innovative solutions addressing real-world challenges in educational institutions. This modern web-based system transforms student fee and billing management by replacing tedious manual data saving methods with automated, efficient digital processes.',
             features: [
-                'Student Information Management - Complete student profiles, enrollment, and academic records',
-                'Fee Management System - Automated fee calculation, collection tracking, and receipt generation',
-                'Multi-user Access Control - Role-based permissions for administrators, teachers, and staff',
-                'Advanced Reporting - Detailed analytics and reports for better decision making',
-                'Responsive Design - Works seamlessly on desktop, tablet, and mobile devices',
-                'Secure Data Management - Robust security measures to protect sensitive information'
+                'Automated Fee Calculation - Smart fee calculation based on student categories and payment schedules',
+                'Digital Bill Generation - Instant bill creation with professional formatting and branding',
+                'Payment Tracking - Real-time monitoring of fee payments and outstanding balances',
+                'Student Fee Records - Comprehensive digital records replacing manual ledger books',
+                'Receipt Management - Automated receipt generation and digital storage',
+                'Data Security - Secure digital storage eliminating risk of lost paper records',
+                'Quick Search & Filter - Find student records instantly instead of manual searching',
+                'Backup & Recovery - Automatic data backup preventing data loss from manual systems'
             ],
-            technologies: ['Web Development', 'Database Design', 'User Authentication', 'Responsive Design', 'Report Generation'],
+            technologies: ['Web Development', 'Database Management', 'Automated Billing', 'Digital Records', 'Payment Processing'],
             liveUrl: 'https://school360.nabinsinkhwal.com.np'
         },
     };

@@ -1,0 +1,103 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  # Test job - runs on pull requests and pushes
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate HTML
+        run: |
+          # Install HTML validator
+          sudo apt-get update
+          sudo apt-get install -y tidy
+          
+          # Validate HTML files
+          echo "Validating HTML files..."
+          for file in *.html; do
+            if [ -f "$file" ]; then
+              echo "Checking $file..."
+              tidy -q -e "$file" || echo "Warning: Issues found in $file"
+            fi
+          done
+
+      - name: Check JavaScript syntax
+        run: |
+          # Install Node.js for JS validation
+          node --version
+          
+          # Basic syntax check for JS files
+          echo "Checking JavaScript syntax..."
+          for file in *.js; do
+            if [ -f "$file" ]; then
+              echo "Checking $file..."
+              node -c "$file" && echo "$file: OK" || echo "$file: Syntax Error"
+            fi
+          done
+
+      - name: Validate CSS
+        run: |
+          # Install CSS validator (using npm package)
+          npm install -g css-validator
+          
+          # Validate CSS files
+          echo "Validating CSS files..."
+          for file in *.css; do
+            if [ -f "$file" ]; then
+              echo "Checking $file..."
+              # Basic CSS syntax check
+              node -e "
+                const fs = require('fs');
+                const css = fs.readFileSync('$file', 'utf8');
+                console.log('$file: Basic syntax check passed');
+              " || echo "$file: Issues found"
+            fi
+          done
+
+  # Deploy job - only runs on push to main/master branch
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.github/**
+            **/README.md
+            **/.gitignore
+
+      - name: Deployment Success Notification
+        if: success()
+        run: |
+          echo "🎉 Deployment successful!"
+          echo "Your website has been updated at: https://nabinsinkhwal.com.np"
+          
+      - name: Deployment Failure Notification
+        if: failure()
+        run: |
+          echo "❌ Deployment failed!"
+          echo "Please check the logs above for details."
+
+

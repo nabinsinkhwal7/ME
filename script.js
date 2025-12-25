@@ -1,142 +1,8 @@
-// Theme Management
-let currentTheme = 'professional'; // Default to professional theme
-
-// Wait for DOM to load before initializing
+// Wait for DOM to load before initializing particles
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize theme system
-    initThemeSystem();
-    
-    // Initialize particles only for personal theme
-    initParticles();
-});
-
-// Theme System Functions
-function initThemeSystem() {
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('websiteTheme') || 'professional';
-    currentTheme = savedTheme;
-    
-    // Set initial theme
-    setTheme(currentTheme);
-    
-    // Add event listener to theme toggle
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-}
-
-function toggleTheme() {
-    currentTheme = currentTheme === 'professional' ? 'personal' : 'professional';
-    setTheme(currentTheme);
-    localStorage.setItem('websiteTheme', currentTheme);
-}
-
-function setTheme(theme) {
-    const professionalTheme = document.getElementById('professionalTheme');
-    const personalTheme = document.getElementById('personalTheme');
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('.theme-icon');
-    const themeText = themeToggle.querySelector('.theme-text');
-    
-    if (theme === 'professional') {
-        professionalTheme.style.display = 'block';
-        personalTheme.style.display = 'none';
-        themeIcon.textContent = '🎮';
-        themeText.textContent = 'Personal';
-        document.body.style.background = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
-    } else {
-        professionalTheme.style.display = 'none';
-        personalTheme.style.display = 'block';
-        themeIcon.textContent = '💼';
-        themeText.textContent = 'Professional';
-        document.body.style.background = 'black';
-        
-        // Reinitialize particles when switching to personal theme
-        setTimeout(initParticles, 100);
-    }
-    
-    currentTheme = theme;
-}
-
-// Project Details Functions
-function showProjectDetails(projectId) {
-    const projectData = {
-        school360: {
-            title: 'School360 - Complete School Management System',
-            description: 'School360 is a comprehensive web-based solution designed specifically for educational institutions to streamline their administrative processes and improve operational efficiency.',
-            features: [
-                'Student Information Management - Complete student profiles, enrollment, and academic records',
-                'Fee Management System - Automated fee calculation, collection tracking, and receipt generation',
-                'Multi-user Access Control - Role-based permissions for administrators, teachers, and staff',
-                'Advanced Reporting - Detailed analytics and reports for better decision making',
-                'Responsive Design - Works seamlessly on desktop, tablet, and mobile devices',
-                'Secure Data Management - Robust security measures to protect sensitive information'
-            ],
-            technologies: ['Web Development', 'Database Design', 'User Authentication', 'Responsive Design', 'Report Generation'],
-            liveUrl: 'https://school360.nabinsinkhwal.com.np'
-        },
-        portfolio: {
-            title: 'Interactive Portfolio Website',
-            description: 'A modern, responsive personal portfolio website featuring interactive games, professional services showcase, and automated deployment pipeline.',
-            features: [
-                'Dual Theme System - Professional and Personal themes with smooth transitions',
-                'Interactive Games - Tic-Tac-Toe with AI and Memory Game with multiple difficulties',
-                'Services Showcase - Professional presentation of services and projects',
-                'Automated CI/CD - GitHub Actions workflow for seamless deployment to cPanel',
-                'Responsive Design - Optimized for all device sizes and screen resolutions',
-                'Modern Animations - Smooth transitions, particle effects, and interactive elements'
-            ],
-            technologies: ['HTML5', 'CSS3', 'JavaScript ES6+', 'GitHub Actions', 'cPanel Deployment'],
-            liveUrl: 'https://nabinsinkhwal.com.np'
-        }
-    };
-    
-    const project = projectData[projectId];
-    if (!project) return;
-    
-    const modal = document.getElementById('projectModal');
-    const content = document.getElementById('projectDetails');
-    
-    content.innerHTML = `
-        <h2>${project.title}</h2>
-        <p>${project.description}</p>
-        
-        <div class="project-features">
-            <h3>Key Features:</h3>
-            <ul>
-                ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-            </ul>
-        </div>
-        
-        <div style="margin: 20px 0;">
-            <h3>Technologies Used:</h3>
-            <div class="project-tech">
-                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="${project.liveUrl}" target="_blank" class="project-btn primary">
-                🚀 View Live Project
-            </a>
-        </div>
-    `;
-    
-    modal.style.display = 'block';
-}
-
-function closeProjectModal() {
-    const modal = document.getElementById('projectModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// Particle System (for Personal Theme)
-function initParticles() {
     const canvas = document.querySelector('.particles');
-    if (!canvas || currentTheme !== 'personal') {
+    if (!canvas) {
+        console.error('Canvas element not found!');
         return;
     }
     
@@ -211,62 +77,6 @@ function initParticles() {
     });
 });
 
-// Service Management
-function openService(serviceType) {
-    switch(serviceType) {
-        case 'school360':
-            showServiceModal('School360 - School Management System', 
-                'A comprehensive billing and management solution designed specifically for educational institutions. School360 streamlines administrative tasks, manages student data, handles fee collection, and provides detailed analytics to help schools operate more efficiently.',
-                'school360.nabinsinkhwal.com.np');
-            break;
-        default:
-            console.log('Service not available yet');
-    }
-}
-
-function showServiceModal(title, description, url) {
-    // Create modal if it doesn't exist
-    let modal = document.getElementById('serviceModal');
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'serviceModal';
-        modal.className = 'service-modal';
-        modal.innerHTML = `
-            <div class="service-modal-content">
-                <span class="close-service" onclick="closeService()">&times;</span>
-                <div id="serviceContent">
-                    <!-- Service content will be loaded here -->
-                </div>
-            </div>
-        `;
-        document.body.appendChild(modal);
-    }
-    
-    const content = document.getElementById('serviceContent');
-    content.innerHTML = `
-        <h2>${title}</h2>
-        <p>${description}</p>
-        <div style="margin: 30px 0;">
-            <a href="https://${url}" target="_blank" class="service-link-button">
-                🚀 Launch ${title.split(' -')[0]}
-            </a>
-            <br><br>
-            <small style="color: #888; font-size: 0.9rem;">
-                Opens in a new tab • Hosted on ${url}
-            </small>
-        </div>
-    `;
-    
-    modal.style.display = 'block';
-}
-
-function closeService() {
-    const modal = document.getElementById('serviceModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
-}
-
 // Game Management
 function openGame(gameType) {
     const modal = document.getElementById('gameModal');
@@ -293,20 +103,24 @@ function closeGame() {
 // Close modal when clicking outside
 window.onclick = function(event) {
     const gameModal = document.getElementById('gameModal');
-    const serviceModal = document.getElementById('serviceModal');
     const projectModal = document.getElementById('projectModal');
     
     if (event.target === gameModal) {
         gameModal.style.display = 'none';
     }
     
-    if (event.target === serviceModal) {
-        serviceModal.style.display = 'none';
-    }
-    
     if (event.target === projectModal) {
         projectModal.style.display = 'none';
     }
+}
+
+// Smooth scroll to Projects section
+function scrollToProjects() {
+    const projectsSection = document.getElementById('projects-section');
+    projectsSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
 }
 
 // Smooth scroll to About section
@@ -316,6 +130,81 @@ function scrollToAbout() {
         behavior: 'smooth',
         block: 'start'
     });
+}
+
+// Project Details Management
+function openProjectDetails(projectId) {
+    const projectData = {
+        school360: {
+            title: 'School360 - Complete School Management System',
+            description: 'A comprehensive web-based solution designed specifically for educational institutions to streamline their administrative processes and improve operational efficiency.',
+            features: [
+                'Student Information Management - Complete student profiles, enrollment, and academic records',
+                'Fee Management System - Automated fee calculation, collection tracking, and receipt generation',
+                'Multi-user Access Control - Role-based permissions for administrators, teachers, and staff',
+                'Advanced Reporting - Detailed analytics and reports for better decision making',
+                'Responsive Design - Works seamlessly on desktop, tablet, and mobile devices',
+                'Secure Data Management - Robust security measures to protect sensitive information'
+            ],
+            technologies: ['Web Development', 'Database Design', 'User Authentication', 'Responsive Design', 'Report Generation'],
+            liveUrl: 'https://school360.nabinsinkhwal.com.np'
+        },
+    };
+    
+    const project = projectData[projectId];
+    if (!project) return;
+    
+    // Create project modal if it doesn't exist
+    let modal = document.getElementById('projectModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'projectModal';
+        modal.className = 'project-modal';
+        modal.innerHTML = `
+            <div class="project-modal-content">
+                <span class="close-project" onclick="closeProjectModal()">&times;</span>
+                <div id="projectDetails">
+                    <!-- Project content will be loaded here -->
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+    
+    const content = document.getElementById('projectDetails');
+    content.innerHTML = `
+        <h2 style="color: #00bcd4; margin-bottom: 20px;">${project.title}</h2>
+        <p style="color: #e0e0e0; line-height: 1.6; margin-bottom: 25px;">${project.description}</p>
+        
+        <div style="background: rgba(0, 188, 212, 0.1); padding: 20px; border-radius: 15px; margin: 25px 0; border: 1px solid rgba(0, 188, 212, 0.2);">
+            <h3 style="color: #00bcd4; margin-bottom: 15px;">Key Features:</h3>
+            <ul style="color: #ccc; padding-left: 20px;">
+                ${project.features.map(feature => `<li style="margin-bottom: 8px;">${feature}</li>`).join('')}
+            </ul>
+        </div>
+        
+        <div style="margin: 25px 0;">
+            <h3 style="color: #00bcd4; margin-bottom: 15px;">Technologies Used:</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                ${project.technologies.map(tech => `<span style="background: rgba(0, 188, 212, 0.2); color: #00bcd4; padding: 6px 12px; border-radius: 15px; font-size: 0.85rem; border: 1px solid rgba(0, 188, 212, 0.3);">${tech}</span>`).join('')}
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="${project.liveUrl}" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #00bcd4, #0097a7); color: white; padding: 15px 35px; text-decoration: none; border-radius: 30px; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);">
+                🚀 View Live Project
+            </a>
+        </div>
+    `;
+    
+    modal.style.display = 'block';
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
 
 // Tic-Tac-Toe Game

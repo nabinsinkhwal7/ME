@@ -21,7 +21,7 @@
     <meta property="twitter:description" content="Passionate developer and writer. Explore my projects, skills, and thoughts on technology.">
     <meta property="twitter:image" content="https://nabinsinkhwal.com.np/og-image.jpg">
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👽</text></svg>">
     <title>Nabin Sinkhwal - Developer & Writer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -49,10 +49,31 @@
         </div>
     </div>
 
-    <!-- Down Arrow to About Section -->
-    <div class="scroll-arrow" onclick="scrollToAbout()">
-        <div class="arrow-label">About me</div>
-        <div class="arrow-down">⬇️</div>
+    <!-- Recent Projects Section -->
+    <div id="projects-section" class="projects-section">
+        <div class="projects-content">
+            <h2 class="projects-title">Recent Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProjectDetails('school360')">
+                    <div class="project-icon">🏫</div>
+                    <h3>School360</h3>
+                    <p>Complete School Management System</p>
+                    <div class="project-tech-tags">
+                        <span class="tech-tag">Web Development</span>
+                        <span class="tech-tag">Database Design</span>
+                        <span class="tech-tag">User Auth</span>
+                    </div>
+                </div>
+                
+                <div class="project-card coming-soon">
+                    <div class="project-icon">🚀</div>
+                    <h3>More Projects</h3>
+                    <p>Exciting new projects coming soon!</p>
+                    <div class="project-status">Coming Soon</div>
+                </div>
+            </div>
+            
+        </div>
     </div>
 
     <!-- About Me Section -->

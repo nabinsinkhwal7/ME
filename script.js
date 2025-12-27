@@ -175,25 +175,25 @@ function openProjectDetails(projectId) {
     
     const content = document.getElementById('projectDetails');
     content.innerHTML = `
-        <h2 style="color: #00bcd4; margin-bottom: 20px;">${project.title}</h2>
-        <p style="color: #e0e0e0; line-height: 1.6; margin-bottom: 25px;">${project.description}</p>
+        <h2>${project.title}</h2>
+        <p>${project.description}</p>
         
-        <div style="background: rgba(0, 188, 212, 0.1); padding: 20px; border-radius: 15px; margin: 25px 0; border: 1px solid rgba(0, 188, 212, 0.2);">
-            <h3 style="color: #00bcd4; margin-bottom: 15px;">Key Features:</h3>
-            <ul style="color: #ccc; padding-left: 20px;">
-                ${project.features.map(feature => `<li style="margin-bottom: 8px;">${feature}</li>`).join('')}
+        <div class="project-features">
+            <h3>Key Features:</h3>
+            <ul>
+                ${project.features.map(feature => `<li>${feature}</li>`).join('')}
             </ul>
         </div>
         
         <div style="margin: 25px 0;">
             <h3 style="color: #00bcd4; margin-bottom: 15px;">Technologies Used:</h3>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                ${project.technologies.map(tech => `<span style="background: rgba(0, 188, 212, 0.2); color: #00bcd4; padding: 6px 12px; border-radius: 15px; font-size: 0.85rem; border: 1px solid rgba(0, 188, 212, 0.3);">${tech}</span>`).join('')}
+            <div class="project-tech-display">
+                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
             </div>
         </div>
         
         <div style="text-align: center; margin-top: 30px;">
-            <a href="${project.liveUrl}" target="_blank" style="display: inline-block; background: linear-gradient(45deg, #00bcd4, #0097a7); color: white; padding: 15px 35px; text-decoration: none; border-radius: 30px; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);">
+            <a href="${project.liveUrl}" target="_blank" class="project-live-button">
                 🚀 View Live Project
             </a>
         </div>

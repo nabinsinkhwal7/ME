@@ -1,0 +1,35 @@
+{
+  "name": "nabin-sinkhwal-portfolio",
+  "version": "2.0.0",
+  "description": "Personal portfolio website with advanced cache-busting for static files",
+  "main": "index.html",
+  "scripts": {
+    "bust-cache": "node cache-buster.js",
+    "deploy": "node deploy.js",
+    "dev": "python -m http.server 8000 || php -S localhost:8000 || npx serve .",
+    "test": "node cache-buster.js && echo 'Cache busting test completed'",
+    "clean": "rm -rf .cache-backups || rmdir /s .cache-backups",
+    "backup": "node -e \"require('./cache-buster.js'); console.log('Manual backup created');\""
+  },
+  "keywords": [
+    "portfolio",
+    "static-site",
+    "cache-busting",
+    "web-development",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Nabin Sinkhwal <nsinkhwal@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nabinsinkhwal7/ME.git"
+  },
+  "homepage": "https://nabinsinkhwal.com.np",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

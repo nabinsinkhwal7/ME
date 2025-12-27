@@ -77,10 +77,6 @@ See [DEPLOYMENT_SETUP.md](DEPLOYMENT_SETUP.md) for detailed setup instructions.
 - **LinkedIn**: [nabin-sinkhwal-575262355](https://www.linkedin.com/in/nabin-sinkhwal-575262355/)
 - **GitHub**: [Nabinsinkhwal](https://github.com/Nabinsinkhwal)
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ---
 
 **Built with ❤️ by Nabin Sinkhwal**

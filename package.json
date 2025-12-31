@@ -6,7 +6,7 @@
   "scripts": {
     "bust-cache": "node cache-buster.js",
     "deploy": "node deploy.js",
-    "cloudflare-deploy": "node cloudflare-deploy.js",
+    "cloudflare-deploy": "echo 'Static site ready for deployment'",
     "dev": "python -m http.server 8000 || php -S localhost:8000 || npx serve .",
     "test": "node cache-buster.js && echo 'Cache busting test completed'",
     "clean": "rm -rf .cache-backups || rmdir /s .cache-backups",

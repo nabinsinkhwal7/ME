@@ -1,0 +1,28 @@
+# Cloudflare Pages Configuration for Sinkhwal Services
+# This file configures the deployment settings for optimal performance
+
+name = "sinkhwal-services"
+compatibility_date = "2024-12-31"
+
+[build]
+command = ""
+cwd = ""
+watch_dir = ""
+
+[build.upload]
+format = "modules"
+
+# Static site configuration
+[[pages_build_output_dir]]
+value = "."
+
+# Environment variables for different branches
+[env.production]
+SITE_NAME = "Sinkhwal Services"
+SITE_URL = "https://nabinsinkhwal.com.np"
+CONTACT_EMAIL = "nsinkhwal@gmail.com"
+
+[env.preview]
+SITE_NAME = "Sinkhwal Services (Preview)"
+SITE_URL = "https://preview.nabinsinkhwal.com.np"
+CONTACT_EMAIL = "nsinkhwal@gmail.com"

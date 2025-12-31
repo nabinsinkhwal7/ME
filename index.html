@@ -3,156 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nabin Sinkhwal - Passionate developer and writer. Explore my projects, skills, and thoughts on technology.">
-    <meta name="keywords" content="Nabin Sinkhwal, developer, programmer, web development, software engineer, writer">
-    <meta name="author" content="Nabin Sinkhwal">
+    <meta name="description" content="Sinkhwal Services - Smart Digital Solutions for Every Life & Business Need. Professional web development, business automation, and school management systems.">
+    <meta name="keywords" content="Sinkhwal Services, web development, business automation, school management, digital solutions, software development, Nepal">
+    <meta name="author" content="Sinkhwal Services">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nabinsinkhwal.com.np/">
-    <meta property="og:title" content="Nabin Sinkhwal - Developer & Writer">
-    <meta property="og:description" content="Passionate developer and writer. Explore my projects, skills, and thoughts on technology.">
-    <meta property="og:image" content="https://nabinsinkhwal.com.np/og-image.jpg">
+    <meta property="og:title" content="Sinkhwal Services - Smart Digital Solutions">
+    <meta property="og:description" content="Professional web development, business automation, and school management systems. Transform your business with our smart digital solutions.">
+    <meta property="og:image" content="https://nabinsinkhwal.com.np/business-og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://nabinsinkhwal.com.np/">
-    <meta property="twitter:title" content="Nabin Sinkhwal - Developer & Writer">
-    <meta property="twitter:description" content="Passionate developer and writer. Explore my projects, skills, and thoughts on technology.">
-    <meta property="twitter:image" content="https://nabinsinkhwal.com.np/og-image.jpg">
+    <meta property="twitter:title" content="Sinkhwal Services - Smart Digital Solutions">
+    <meta property="twitter:description" content="Professional web development, business automation, and school management systems. Transform your business with our smart digital solutions.">
+    <meta property="twitter:image" content="https://nabinsinkhwal.com.np/business-og-image.jpg">
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👽</text></svg>">
-    <title>Nabin Sinkhwal - Developer & Writer</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <title>Sinkhwal Services - Smart Digital Solutions</title>
     
-    <!-- Cache-busted CSS - Updated automatically by cache-buster.js -->
-    <link rel="stylesheet" href="styles.css?v=1766819574575">
+    <!-- Cache-busted CSS -->
+    <link rel="stylesheet" href="styles.css?v=1766819359146">
     
-    <!-- Preload critical resources for better performance -->
-    <link rel="preload" href="script.js?v=1766819574575" as="script">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.js?v=1766819359146" as="script">
 </head>
 <body>
     <div class="glow-line"></div>
-    <h1 class="title">Nabin Sinkhwal</h1>
-    <p class="subtitle">Welcome to my personal website!</p>
+    <h1 class="title">Sinkhwal Services</h1>
+    <p class="subtitle">Smart Digital Solutions for Every Life & Business Need</p>
     <div class="glow-line"></div>
     <canvas class="particles"></canvas>
 
-    <!-- Games Section -->
-    <div class="games-section">
-        <h2 class="games-title">🎮 Play some games and relax</h2>
-        <div class="games-grid">
-            <div class="game-card" onclick="openGame('tictactoe')">
-                <div class="game-icon">⭕</div>
-                <h3>Tic-Tac-Toe</h3>
-                <p>Classic 3x3 strategy game</p>
+    <!-- Hero Call-to-Action -->
+    <div class="hero-cta">
+        <button class="cta-button primary" onclick="scrollToServices()">
+            <span class="cta-icon">🚀</span>
+            Explore Our Services
+        </button>
+        <button class="cta-button secondary" onclick="contactWhatsApp('general')">
+            <span class="cta-icon">💬</span>
+            Get Free Consultation
+        </button>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services-section" class="services-section">
+        <h2 class="services-title">Our Professional Services</h2>
+        <div class="services-grid">
+            <div class="service-card" onclick="openServiceDetails('web-development')">
+                <div class="service-icon">🌐</div>
+                <h3>Web Development</h3>
+                <p>Custom web applications and responsive websites built with modern technologies for optimal performance and user experience</p>
+                <div class="service-features">
+                    <span class="feature-tag">🎨 Responsive Design</span>
+                    <span class="feature-tag">⚡ Fast Performance</span>
+                    <span class="feature-tag">🔍 SEO Optimized</span>
+                    <span class="feature-tag">📱 Mobile-First</span>
+                </div>
+                <button class="service-cta" onclick="event.stopPropagation(); contactWhatsApp('web-development')">
+                    Get Quote
+                </button>
             </div>
-            <div class="game-card" onclick="openGame('memory')">
-                <div class="game-icon">🧠</div>
-                <h3>Memory Game</h3>
-                <p>Test your memory skills</p>
+            
+            <div class="service-card" onclick="openServiceDetails('business-automation')">
+                <div class="service-icon">⚙️</div>
+                <h3>Business Automation</h3>
+                <p>Streamline your business processes with custom automation solutions that save time, reduce errors, and increase efficiency</p>
+                <div class="service-features">
+                    <span class="feature-tag">🔄 Process Automation</span>
+                    <span class="feature-tag">📊 Data Management</span>
+                    <span class="feature-tag">🔗 System Integration</span>
+                    <span class="feature-tag">📈 Workflow Optimization</span>
+                </div>
+                <button class="service-cta" onclick="event.stopPropagation(); contactWhatsApp('business-automation')">
+                    Get Quote
+                </button>
+            </div>
+            
+            <div class="service-card featured" onclick="openServiceDetails('school-management')">
+                <div class="service-icon">🏫</div>
+                <h3>School Management Systems</h3>
+                <p>Complete digital solutions for educational institutions including student management, fee collection, and administrative automation</p>
+                <div class="service-features">
+                    <span class="feature-tag">👥 Student Management</span>
+                    <span class="feature-tag">💰 Fee Collection</span>
+                    <span class="feature-tag">📋 Digital Records</span>
+                    <span class="feature-tag">📊 Report Generation</span>
+                    <span class="feature-tag">🔐 Multi-user Access</span>
+                    <span class="feature-tag">📱 Mobile Friendly</span>
+                </div>
+                <div class="featured-badge">Most Popular</div>
+                <button class="service-cta" onclick="event.stopPropagation(); contactWhatsApp('school-management')">
+                    Get Quote
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Recent Projects Section -->
-    <div id="projects-section" class="projects-section">
-        <div class="projects-content">
-            <h2 class="projects-title">Recent Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" onclick="openProjectDetails('school360')">
-                    <div class="project-icon">🏫</div>
-                    <h3>School360</h3>
-                    <p>Digital solution transforming student fee & billing management from manual record-keeping to automated processes for educational institutions</p>
-                    <div class="project-tech-tags">
-                        <span class="tech-tag">📊 Student Fee Management</span>
-                        <span class="tech-tag">🧾 Claim Bill Generation</span>
-                        <span class="tech-tag">💰 Automated Payment Processing</span>
-                        <span class="tech-tag">📋 Replace Manual Ledgers</span>
-                        <span class="tech-tag">🔍 Instant Record Search</span>
-                        <span class="tech-tag">📱 Digital Receipt System</span>
-                    </div>
-                </div>
-                
-                <div class="project-card coming-soon">
-                    <div class="project-icon">🚀</div>
-                    <h3>More Projects</h3>
-                    <p>Exciting new projects coming soon!</p>
-                    <div class="project-status">Coming Soon</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Me Section -->
+    <!-- About Company Section -->
     <div id="about-section" class="about-section">
         <div class="about-content">
-            <h2 class="about-title">About Me</h2>
+            <h2 class="about-title">About Sinkhwal Services</h2>
             <div class="about-text">
                 <p>
-                    Hello! I'm Nabin Sinkhwal, a passionate software developer who enjoys building digital solutions that simplify everyday life. From automating tasks like school billing to organizing information that is usually done manually, I love creating tools that make daily activities easier, more efficient, and more enjoyable.
+                    <strong>Sinkhwal Services</strong> is a professional software development company specializing in smart digital solutions that transform how businesses and organizations operate. We bridge the gap between traditional manual processes and modern digital efficiency.
                 </p>
 
                 <p>
-                    My journey into technology started early—back in school, I was curious about how things worked and tried experimenting with small projects like cloning Facebook pages. Somehow, that curiosity eventually led me to receive a scholarship to study Computer Engineering. From there, my real journey in the tech world began. I'm still on that path, learning and growing every day, and excited for what's ahead.
+                    Our expertise lies in creating custom software solutions that solve real-world problems. From automating tedious manual tasks to building comprehensive management systems, we help our clients save time, reduce errors, and focus on what matters most - growing their business.
                 </p>
 
                 <p>
-                    When I'm not coding, I enjoy hiking, reading, and spending quality time with family and friends. I love learning from nature, exploring new places, and doing my part to respect and protect the environment. These moments keep me grounded and inspire my work as much as technology does.
+                    With years of experience in software development and a deep understanding of business processes, we deliver solutions that are not just technically sound, but also practical and user-friendly.
                 </p>
 
-                <div class="skills-showcase">
-                    <h3>What I work with:</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">💻 C# / .NET (4–5 Years)</span>
-                        <span class="skill-item">⚙️ ASP.NET Core · Entity Framework</span>
-                        <span class="skill-item">🌐 Web Application Development</span>
-                        <span class="skill-item">🏗️ API Design & System Architecture</span>
-
-                        <span class="skill-item">🎨 Frontend: React · Next.js · Angular · Vue · Nuxt</span>
-                        <span class="skill-item">📱 UI/UX & Responsive Design</span>
-
-                        <span class="skill-item">⚡ JavaScript · Node.js · Express · Electron</span>
-                        <span class="skill-item">🧩 PHP (Laravel) · WordPress</span>
-
-                        <span class="skill-item">🗄️ Databases: MySQL · MSSQL · PostgreSQL · MongoDB</span>
-                        <span class="skill-item">🚀 CI/CD · Git · DevOps</span>
-                        <span class="skill-item">🎯 Problem Solving & Technical Documentation</span>
+                <div class="expertise-showcase">
+                    <h3>Our Technical Expertise:</h3>
+                    <div class="expertise-items">
+                        <span class="expertise-item">💻 Full-Stack Web Development</span>
+                        <span class="expertise-item">⚙️ C# / .NET Development (5+ Years)</span>
+                        <span class="expertise-item">🌐 Modern Frontend Frameworks</span>
+                        <span class="expertise-item">🗄️ Database Design & Management</span>
+                        <span class="expertise-item">🔗 API Development & Integration</span>
+                        <span class="expertise-item">📱 Responsive & Mobile Design</span>
+                        <span class="expertise-item">🚀 Cloud Deployment & DevOps</span>
+                        <span class="expertise-item">🔒 Security & Data Protection</span>
                     </div>
                 </div>
-                <p>
-                    Feel free to explore my games above, and don't hesitate to connect with me through my social links. I'm always excited to discuss technology, collaborate on projects, or just have a friendly chat!
-                    If you or your group are handling tasks manually—like keeping track of inventory, managing stock, recording finances, or any repetitive data work—I'd love to help by creating simple web-based solutions that make your processes easier, faster, and more efficient. Real-world problems like these inspire me, and I'm always happy to turn them into practical digital tools.
+
+                <div class="value-proposition">
+                    <h3>Why Choose Sinkhwal Services?</h3>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <div class="value-icon">🎯</div>
+                            <h4>Problem-Focused Solutions</h4>
+                            <p>We don't just build software - we solve business problems with technology</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">⚡</div>
+                            <h4>Rapid Development</h4>
+                            <p>Efficient development process that delivers results quickly without compromising quality</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🤝</div>
+                            <h4>Personal Service</h4>
+                            <p>Direct communication with experienced developers, not account managers</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">💡</div>
+                            <h4>Innovation-Driven</h4>
+                            <p>We use the latest technologies and best practices to future-proof your solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="cta-text">
+                    Ready to transform your business with smart digital solutions? Let's discuss how we can help streamline your processes, automate repetitive tasks, and build the custom software your business needs to thrive.
                 </p>
 
-                <div class="social-links-about">
-                    <a href="mailto:nsinkhwal@gmail.com" class="social-link-about">
-                        <span class="social-icon-about">📧</span> Email
-                    </a>
-                    <a href="https://wa.me/9779869131707" class="social-link-about" target="_blank">
-                        <span class="social-icon-about">📱</span> WhatsApp
-                    </a>
-                    <a href="https://www.linkedin.com/in/nabin-sinkhwal-575262355/" class="social-link-about" target="_blank">
-                        <span class="social-icon-about">💼</span> LinkedIn
-                    </a>
-                    <a href="https://github.com/Nabinsinkhwal" class="social-link-about" target="_blank">
-                        <span class="social-icon-about">💻</span> GitHub
-                    </a>
+                <div class="contact-actions">
+                    <button class="contact-btn primary" onclick="contactWhatsApp('consultation')">
+                        <span class="btn-icon">💬</span>
+                        Schedule Free Consultation
+                    </button>
+                    <button class="contact-btn secondary" onclick="scrollToContact()">
+                        <span class="btn-icon">📞</span>
+                        View Contact Information
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Game Modal -->
-    <div id="gameModal" class="game-modal">
-        <div class="game-modal-content">
-            <span class="close-game" onclick="closeGame()">&times;</span>
-            <div id="gameContainer">
-                <!-- Game content will be loaded here -->
+    <!-- Contact Section -->
+    <div id="contact-section" class="contact-section">
+        <div class="contact-content">
+            <h2 class="contact-title">Get In Touch</h2>
+            <p class="contact-subtitle">Ready to start your digital transformation? Contact us for a free consultation.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-method" onclick="contactWhatsApp('general')">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp Business</h3>
+                    <p>+977 9869131707</p>
+                    <span class="contact-status">Usually responds within 1 hour</span>
+                </div>
+                
+                <div class="contact-method" onclick="window.location.href='mailto:nsinkhwal@gmail.com?subject=Business Inquiry - Sinkhwal Services'">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>nsinkhwal@gmail.com</p>
+                    <span class="contact-status">Professional inquiries welcome</span>
+                </div>
+                
+                <div class="contact-method" onclick="window.open('https://www.linkedin.com/in/nabin-sinkhwal-575262355/', '_blank')">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>Professional Network</p>
+                    <span class="contact-status">Connect for business opportunities</span>
+                </div>
+            </div>
+
+            <div class="business-hours">
+                <h3>Business Hours</h3>
+                <div class="hours-grid">
+                    <div class="hours-item">
+                        <span class="day">Monday - Friday</span>
+                        <span class="time">9:00 AM - 6:00 PM (NPT)</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="day">Saturday</span>
+                        <span class="time">10:00 AM - 4:00 PM (NPT)</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="day">Sunday</span>
+                        <span class="time">Emergency support only</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Cache-busted JavaScript - Updated automatically by cache-buster.js -->
-    <script src="script.js?v=1766819574575"></script>
+    <!-- Service Details Modal -->
+    <div id="serviceModal" class="service-modal">
+        <div class="service-modal-content">
+            <span class="close-service" onclick="closeServiceModal()">&times;</span>
+            <div id="serviceDetails">
+                <!-- Service details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cache-busted JavaScript -->
+    <script src="script.js?v=1766819359146"></script>
 </body>
 </html>

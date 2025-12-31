@@ -1,5 +1,15 @@
-// Wait for DOM to load before initializing particles
+// Professional Business Website JavaScript for Sinkhwal Services
+// Includes particle system, service modals, and WhatsApp integration
+
+// Wait for DOM to load before initializing
 document.addEventListener('DOMContentLoaded', function() {
+    initParticles();
+    initServiceSystem();
+    initScrollEffects();
+});
+
+// Particle System (maintained for professional tech aesthetic)
+function initParticles() {
     const canvas = document.querySelector('.particles');
     if (!canvas) {
         console.error('Canvas element not found!');
@@ -10,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    console.log('Canvas initialized:', canvas.width, 'x', canvas.height);
+    console.log('Particle system initialized:', canvas.width, 'x', canvas.height);
 
     const particles = [];
 
@@ -18,15 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1; // Make particles slightly bigger
-            this.speedX = Math.random() * 1 - 0.5;
-            this.speedY = Math.random() * 1 - 0.5;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 0.8 - 0.4; // Slower, more professional movement
+            this.speedY = Math.random() * 0.8 - 0.4;
             this.opacity = 0;
         }
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
-            this.opacity += 0.01;
+            this.opacity += 0.008; // Slower fade-in
             if (this.opacity > 1) this.opacity = 1;
             if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
                 this.x = Math.random() * canvas.width;
@@ -35,22 +45,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         draw() {
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.8})`; // Make more visible
+            // Professional glow effect
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = 'rgba(37, 99, 235, 0.4)'; // Professional blue glow
+            
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.7})`;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
             
-            // Add a subtle glow effect
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
-            ctx.fill();
-            ctx.shadowBlur = 0; // Reset shadow
+            ctx.shadowBlur = 0;
         }
     }
 
     function init() {
-        particles.length = 0; // Clear existing particles
-        for (let i = 0; i < 100; i++) {
+        particles.length = 0;
+        for (let i = 0; i < 80; i++) { // Fewer particles for professional look
             particles.push(new Particle());
         }
         console.log('Particles initialized:', particles.length);
@@ -65,539 +75,347 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animate);
     }
 
-    // Initialize and start animation
     init();
     animate();
     
-    // Resize handler for canvas
+    // Resize handler
     window.addEventListener('resize', function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         console.log('Canvas resized:', canvas.width, 'x', canvas.height);
     });
-});
-
-// Game Management
-function openGame(gameType) {
-    const modal = document.getElementById('gameModal');
-    const container = document.getElementById('gameContainer');
-    
-    modal.style.display = 'block';
-    
-    switch(gameType) {
-        case 'tictactoe':
-            container.innerHTML = createTicTacToe();
-            initTicTacToe();
-            break;
-        case 'memory':
-            container.innerHTML = createMemoryGame();
-            initMemoryGame();
-            break;
-    }
 }
 
-function closeGame() {
-    document.getElementById('gameModal').style.display = 'none';
+// Service System Initialization
+function initServiceSystem() {
+    console.log('Service system initialized');
+    // Add any service-specific initialization here
+}
+
+// Scroll Effects
+function initScrollEffects() {
+    // Smooth scrolling for navigation
+    window.scrollToServices = function() {
+        document.getElementById('services-section').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    };
+
+    window.scrollToContact = function() {
+        document.getElementById('contact-section').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    };
+}
+
+// WhatsApp Business Integration
+function contactWhatsApp(serviceType) {
+    const phoneNumber = '9779869131707'; // Your WhatsApp Business number
+    const baseUrl = `https://wa.me/${phoneNumber}`;
+    
+    const messages = {
+        'general': `Hello! I'm interested in learning more about Sinkhwal Services and your digital solutions. Could we schedule a consultation?`,
+        
+        'web-development': `Hi! I'm interested in your Web Development services. I'd like to discuss building a custom web application/website. Could you provide more details about your process and pricing?`,
+        
+        'business-automation': `Hello! I'm looking for Business Automation solutions to streamline our processes. Could we discuss how you can help automate our workflows and improve efficiency?`,
+        
+        'school-management': `Hi! I'm interested in your School Management System (School360). We need a complete solution for student management and fee collection. Can we discuss our requirements?`,
+        
+        'consultation': `Hello! I'd like to schedule a free consultation to discuss how Sinkhwal Services can help transform our business with digital solutions. When would be a good time to talk?`
+    };
+    
+    const message = messages[serviceType] || messages['general'];
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `${baseUrl}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Track the interaction (for analytics if needed)
+    console.log(`WhatsApp contact initiated for: ${serviceType}`);
+}
+
+// Service Details Modal System
+function openServiceDetails(serviceId) {
+    const serviceData = {
+        'web-development': {
+            title: 'Web Development Services',
+            icon: '🌐',
+            description: 'Transform your business with custom web applications and responsive websites built using modern technologies and best practices.',
+            
+            features: [
+                'Custom Web Application Development - Tailored solutions for your specific business needs',
+                'Responsive Website Design - Perfect display on all devices and screen sizes',
+                'E-commerce Solutions - Complete online stores with payment integration',
+                'Content Management Systems - Easy-to-use admin panels for content updates',
+                'API Development & Integration - Connect your systems and third-party services',
+                'Performance Optimization - Fast loading times and smooth user experience',
+                'SEO Implementation - Built-in search engine optimization for better visibility',
+                'Security & Maintenance - Ongoing support and security updates'
+            ],
+            
+            technologies: ['HTML5/CSS3', 'JavaScript/TypeScript', 'React/Angular/Vue', 'Node.js', 'ASP.NET Core', 'Database Design', 'Cloud Deployment'],
+            
+            process: [
+                '1. Requirements Analysis - Understanding your business needs and goals',
+                '2. Design & Planning - Creating wireframes and technical specifications',
+                '3. Development - Building your solution with regular progress updates',
+                '4. Testing & Quality Assurance - Thorough testing across all devices',
+                '5. Deployment & Launch - Going live with full support',
+                '6. Maintenance & Support - Ongoing updates and technical support'
+            ],
+            
+            pricing: 'Starting from NPR 50,000 for basic websites. Custom applications quoted based on requirements.',
+            timeline: '2-8 weeks depending on project complexity'
+        },
+        
+        'business-automation': {
+            title: 'Business Automation Solutions',
+            icon: '⚙️',
+            description: 'Eliminate manual processes and boost efficiency with custom automation solutions designed specifically for your business workflows.',
+            
+            features: [
+                'Process Automation - Automate repetitive tasks and workflows',
+                'Data Entry Automation - Eliminate manual data input and reduce errors',
+                'Report Generation - Automated reports and analytics dashboards',
+                'Inventory Management - Real-time stock tracking and alerts',
+                'Customer Relationship Management - Automated customer communications',
+                'Financial Process Automation - Invoice generation and payment tracking',
+                'Document Management - Automated filing and retrieval systems',
+                'Integration Services - Connect existing systems and software'
+            ],
+            
+            technologies: ['Process Mining', 'Workflow Engines', 'Database Automation', 'API Integration', 'Cloud Services', 'Business Intelligence', 'Custom Software'],
+            
+            benefits: [
+                '⏰ Save 60-80% of time spent on manual tasks',
+                '📊 Reduce human errors by up to 95%',
+                '💰 Lower operational costs significantly',
+                '📈 Improve business scalability and growth',
+                '🔍 Better data accuracy and reporting',
+                '🚀 Faster decision-making with real-time data'
+            ],
+            
+            pricing: 'Starting from NPR 75,000. ROI typically achieved within 3-6 months.',
+            timeline: '3-12 weeks depending on process complexity'
+        },
+        
+        'school-management': {
+            title: 'School Management Systems (School360)',
+            icon: '🏫',
+            description: 'Complete digital transformation for educational institutions. Our flagship School360 system replaces manual processes with efficient digital solutions.',
+            
+            features: [
+                'Student Information Management - Complete digital student profiles and records',
+                'Automated Fee Collection - Smart fee calculation and payment tracking',
+                'Digital Bill Generation - Professional invoices and receipts',
+                'Attendance Management - Digital attendance tracking and reporting',
+                'Grade Management - Online gradebooks and report cards',
+                'Parent Communication - Automated notifications and updates',
+                'Staff Management - Employee records and payroll integration',
+                'Financial Reporting - Comprehensive financial analytics and reports',
+                'Multi-user Access - Role-based permissions for different users',
+                'Mobile-Friendly Interface - Access from any device, anywhere'
+            ],
+            
+            modules: [
+                '👥 Student Management Module',
+                '💰 Fee Collection & Billing',
+                '📚 Academic Management',
+                '👨‍🏫 Staff & Teacher Portal',
+                '👨‍👩‍👧‍👦 Parent Communication Portal',
+                '📊 Reports & Analytics Dashboard',
+                '🔐 Security & User Management',
+                '📱 Mobile Application'
+            ],
+            
+            benefits: [
+                '📋 Replace manual ledger books with digital records',
+                '⚡ Reduce administrative workload by 70%',
+                '💡 Eliminate calculation errors in fee management',
+                '📞 Improve parent-school communication',
+                '📈 Better financial tracking and reporting',
+                '🔒 Secure data storage and backup'
+            ],
+            
+            liveDemo: 'https://school360.nabinsinkhwal.com.np',
+            pricing: 'Starting from NPR 1,50,000 for complete system. Customization available.',
+            timeline: '4-12 weeks for full implementation including training'
+        }
+    };
+    
+    const service = serviceData[serviceId];
+    if (!service) return;
+    
+    const modal = document.getElementById('serviceModal');
+    const content = document.getElementById('serviceDetails');
+    
+    let modalHTML = `
+        <div class="service-header">
+            <div class="service-modal-icon">${service.icon}</div>
+            <h2>${service.title}</h2>
+            <p class="service-modal-description">${service.description}</p>
+        </div>
+    `;
+    
+    // Features section
+    if (service.features) {
+        modalHTML += `
+            <div class="modal-section">
+                <h3>Key Features & Capabilities</h3>
+                <ul class="feature-list">
+                    ${service.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+    
+    // Technologies section
+    if (service.technologies) {
+        modalHTML += `
+            <div class="modal-section">
+                <h3>Technologies Used</h3>
+                <div class="tech-tags">
+                    ${service.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    // Process section (for web development)
+    if (service.process) {
+        modalHTML += `
+            <div class="modal-section">
+                <h3>Our Development Process</h3>
+                <ul class="process-list">
+                    ${service.process.map(step => `<li>${step}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+    
+    // Benefits section (for automation)
+    if (service.benefits) {
+        modalHTML += `
+            <div class="modal-section">
+                <h3>Business Benefits</h3>
+                <ul class="benefits-list">
+                    ${service.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }
+    
+    // Modules section (for school management)
+    if (service.modules) {
+        modalHTML += `
+            <div class="modal-section">
+                <h3>System Modules</h3>
+                <div class="modules-grid">
+                    ${service.modules.map(module => `<div class="module-item">${module}</div>`).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    // Pricing and timeline
+    modalHTML += `
+        <div class="modal-section pricing-section">
+            <div class="pricing-info">
+                <h4>💰 Investment</h4>
+                <p>${service.pricing}</p>
+            </div>
+            <div class="timeline-info">
+                <h4>⏱️ Timeline</h4>
+                <p>${service.timeline}</p>
+            </div>
+        </div>
+    `;
+    
+    // Live demo link (for school management)
+    if (service.liveDemo) {
+        modalHTML += `
+            <div class="modal-section demo-section">
+                <a href="${service.liveDemo}" target="_blank" class="demo-button">
+                    🚀 View Live Demo - School360
+                </a>
+            </div>
+        `;
+    }
+    
+    // Call to action buttons
+    modalHTML += `
+        <div class="modal-actions">
+            <button class="modal-cta primary" onclick="contactWhatsApp('${serviceId}')">
+                💬 Get Detailed Quote
+            </button>
+            <button class="modal-cta secondary" onclick="contactWhatsApp('consultation')">
+                📞 Schedule Consultation
+            </button>
+        </div>
+    `;
+    
+    content.innerHTML = modalHTML;
+    modal.style.display = 'block';
+    
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeServiceModal() {
+    const modal = document.getElementById('serviceModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore body scroll
+    }
 }
 
 // Close modal when clicking outside
 window.onclick = function(event) {
-    const gameModal = document.getElementById('gameModal');
-    const projectModal = document.getElementById('projectModal');
+    const serviceModal = document.getElementById('serviceModal');
     
-    if (event.target === gameModal) {
-        gameModal.style.display = 'none';
-    }
-    
-    if (event.target === projectModal) {
-        projectModal.style.display = 'none';
+    if (event.target === serviceModal) {
+        closeServiceModal();
     }
 }
 
-// Smooth scroll to Projects section
-function scrollToProjects() {
-    const projectsSection = document.getElementById('projects-section');
-    projectsSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
-
-// Smooth scroll to About section
-function scrollToAbout() {
-    const aboutSection = document.getElementById('about-section');
-    aboutSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
-
-// Project Details Management
-function openProjectDetails(projectId) {
-    const projectData = {
-        school360: {
-            title: 'School360 - Student Fee & Billing Management System',
-            description: 'One of my innovative solutions addressing real-world challenges in educational institutions. This modern web-based system transforms student fee and billing management by replacing tedious manual data saving methods with automated, efficient digital processes.',
-            features: [
-                'Automated Fee Calculation - Smart fee calculation based on student categories and payment schedules',
-                'Digital Bill Generation - Instant bill creation with professional formatting and branding',
-                'Payment Tracking - Real-time monitoring of fee payments and outstanding balances',
-                'Student Fee Records - Comprehensive digital records replacing manual ledger books',
-                'Receipt Management - Automated receipt generation and digital storage',
-                'Data Security - Secure digital storage eliminating risk of lost paper records',
-                'Quick Search & Filter - Find student records instantly instead of manual searching',
-                'Backup & Recovery - Automatic data backup preventing data loss from manual systems'
-            ],
-            technologies: ['Web Development', 'Database Management', 'Automated Billing', 'Digital Records', 'Payment Processing'],
-            liveUrl: 'https://school360.nabinsinkhwal.com.np'
-        },
-    };
-    
-    const project = projectData[projectId];
-    if (!project) return;
-    
-    // Create project modal if it doesn't exist
-    let modal = document.getElementById('projectModal');
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'projectModal';
-        modal.className = 'project-modal';
-        modal.innerHTML = `
-            <div class="project-modal-content">
-                <span class="close-project" onclick="closeProjectModal()">&times;</span>
-                <div id="projectDetails">
-                    <!-- Project content will be loaded here -->
-                </div>
-            </div>
-        `;
-        document.body.appendChild(modal);
-    }
-    
-    const content = document.getElementById('projectDetails');
-    content.innerHTML = `
-        <h2>${project.title}</h2>
-        <p>${project.description}</p>
-        
-        <div class="project-features">
-            <h3>Key Features:</h3>
-            <ul>
-                ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-            </ul>
-        </div>
-        
-        <div style="margin: 25px 0;">
-            <h3 style="color: #00bcd4; margin-bottom: 15px;">Technologies Used:</h3>
-            <div class="project-tech-display">
-                ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="${project.liveUrl}" target="_blank" class="project-live-button">
-                🚀 View Live Project
-            </a>
-        </div>
-    `;
-    
-    modal.style.display = 'block';
-}
-
-function closeProjectModal() {
-    const modal = document.getElementById('projectModal');
-    if (modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// Tic-Tac-Toe Game
-function createTicTacToe() {
-    return `
-        <div style="text-align: center; color: white;">
-            <h2 style="color: #00bcd4; margin-bottom: 20px;">🎮 Tic-Tac-Toe</h2>
-            
-            <!-- Game Mode Selection -->
-            <div id="gameModeSelection" style="margin-bottom: 30px;">
-                <p style="margin-bottom: 20px; font-size: 18px;">Choose your game mode:</p>
-                <button onclick="startTicTacToe('friend')" style="padding: 12px 24px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 10px;">👥 Play with Friend</button>
-                <button onclick="startTicTacToe('computer')" style="padding: 12px 24px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 10px;">🎯 Play against Me</button>
-            </div>
-            
-            <!-- Game Board (initially hidden) -->
-            <div id="ticTacToeGame" style="display: none;">
-                <div id="gameMode" style="margin-bottom: 15px; font-size: 16px; color: #888;"></div>
-                <div id="ticTacToeBoard" style="display: grid; grid-template-columns: repeat(3, 80px); gap: 5px; justify-content: center; margin: 20px 0;">
-                    ${Array(9).fill().map((_, i) => `<button class="tic-cell" onclick="makeMove(${i})" style="width: 80px; height: 80px; font-size: 24px; background: rgba(255,255,255,0.1); border: 2px solid #00bcd4; color: white; cursor: pointer; border-radius: 10px; transition: all 0.3s;">${''}</button>`).join('')}
-                </div>
-                <div id="ticStatus" style="font-size: 18px; margin: 20px 0; color: #00bcd4;">Your turn! Click a cell to play.</div>
-                <button onclick="resetTicTacToe()" style="padding: 10px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">New Game</button>
-                <button onclick="backToModeSelection()" style="padding: 10px 20px; background: #666; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">Change Mode</button>
-            </div>
-        </div>
-    `;
-}
-
-let ticBoard = Array(9).fill('');
-let currentPlayer = 'X';
-let gameActive = true;
-let gameMode = 'friend'; // 'friend' or 'computer'
-let isPlayerTurn = true;
-
-function initTicTacToe() {
-    // Show mode selection, hide game board
-    document.getElementById('gameModeSelection').style.display = 'block';
-    document.getElementById('ticTacToeGame').style.display = 'none';
-}
-
-function startTicTacToe(mode) {
-    gameMode = mode;
-    ticBoard = Array(9).fill('');
-    currentPlayer = 'X';
-    gameActive = true;
-    isPlayerTurn = true;
-    
-    // Hide mode selection, show game board
-    document.getElementById('gameModeSelection').style.display = 'none';
-    document.getElementById('ticTacToeGame').style.display = 'block';
-    
-    // Update game mode display and status
-    const modeText = mode === 'friend' ? '👥 Playing with Friend' : '🎯 Playing against Me';
-    document.getElementById('gameMode').textContent = modeText;
-    
-    const statusText = mode === 'friend' ? 'Player X\'s turn' : 'Your turn (X)';
-    document.getElementById('ticStatus').textContent = statusText;
-    
-    // Reset board display
-    document.querySelectorAll('.tic-cell').forEach(cell => {
-        cell.textContent = '';
-        cell.style.background = 'rgba(255,255,255,0.1)';
-    });
-}
-
-function backToModeSelection() {
-    document.getElementById('gameModeSelection').style.display = 'block';
-    document.getElementById('ticTacToeGame').style.display = 'none';
-}
-
-function makeMove(index) {
-    if (ticBoard[index] !== '' || !gameActive) return;
-    
-    // In computer mode, only allow moves when it's player's turn
-    if (gameMode === 'computer' && !isPlayerTurn) return;
-    
-    ticBoard[index] = currentPlayer;
-    document.getElementsByClassName('tic-cell')[index].textContent = currentPlayer;
-    document.getElementsByClassName('tic-cell')[index].style.background = 'rgba(0, 188, 212, 0.3)';
-    
-    if (checkWinner()) {
-        const winnerText = gameMode === 'friend' ? `Player ${currentPlayer} wins! 🎉` : 
-                          (currentPlayer === 'X' ? 'You win! 🎉' : 'I win! 😊');
-        document.getElementById('ticStatus').textContent = winnerText;
-        gameActive = false;
-        return;
-    }
-    
-    if (ticBoard.every(cell => cell !== '')) {
-        document.getElementById('ticStatus').textContent = "It's a tie! 🤝";
-        gameActive = false;
-        return;
-    }
-    
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    
-    if (gameMode === 'friend') {
-        document.getElementById('ticStatus').textContent = `Player ${currentPlayer}'s turn`;
-    } else {
-        // Computer mode
-        if (currentPlayer === 'O') {
-            isPlayerTurn = false;
-            document.getElementById('ticStatus').textContent = 'I\'m thinking...';
-            setTimeout(makeComputerMove, 800); // Add delay for better UX
-        } else {
-            isPlayerTurn = true;
-            document.getElementById('ticStatus').textContent = 'Your turn (X)';
-        }
-    }
-}
-
-function makeComputerMove() {
-    if (!gameActive) return;
-    
-    const bestMove = getBestMove();
-    if (bestMove !== -1) {
-        ticBoard[bestMove] = 'O';
-        document.getElementsByClassName('tic-cell')[bestMove].textContent = 'O';
-        document.getElementsByClassName('tic-cell')[bestMove].style.background = 'rgba(255, 100, 100, 0.3)';
-        
-        if (checkWinner()) {
-            document.getElementById('ticStatus').textContent = 'I win! 😊';
-            gameActive = false;
-            return;
-        }
-        
-        if (ticBoard.every(cell => cell !== '')) {
-            document.getElementById('ticStatus').textContent = "It's a tie! 🤝";
-            gameActive = false;
-            return;
-        }
-        
-        currentPlayer = 'X';
-        isPlayerTurn = true;
-        document.getElementById('ticStatus').textContent = 'Your turn (X)';
-    }
-}
-
-function getBestMove() {
-    // Simple AI strategy:
-    // 1. Try to win
-    // 2. Try to block player from winning
-    // 3. Take center if available
-    // 4. Take corners
-    // 5. Take any remaining spot
-    
-    // Check if computer can win
-    for (let i = 0; i < 9; i++) {
-        if (ticBoard[i] === '') {
-            ticBoard[i] = 'O';
-            if (checkWinner()) {
-                ticBoard[i] = '';
-                return i;
-            }
-            ticBoard[i] = '';
-        }
-    }
-    
-    // Check if need to block player
-    for (let i = 0; i < 9; i++) {
-        if (ticBoard[i] === '') {
-            ticBoard[i] = 'X';
-            if (checkWinner()) {
-                ticBoard[i] = '';
-                return i;
-            }
-            ticBoard[i] = '';
-        }
-    }
-    
-    // Take center if available
-    if (ticBoard[4] === '') return 4;
-    
-    // Take corners
-    const corners = [0, 2, 6, 8];
-    for (let corner of corners) {
-        if (ticBoard[corner] === '') return corner;
-    }
-    
-    // Take any remaining spot
-    for (let i = 0; i < 9; i++) {
-        if (ticBoard[i] === '') return i;
-    }
-    
-    return -1;
-}
-
-function checkWinner() {
-    const winPatterns = [
-        [0,1,2], [3,4,5], [6,7,8], // rows
-        [0,3,6], [1,4,7], [2,5,8], // columns
-        [0,4,8], [2,4,6] // diagonals
-    ];
-    
-    return winPatterns.some(pattern => {
-        const [a,b,c] = pattern;
-        return ticBoard[a] && ticBoard[a] === ticBoard[b] && ticBoard[a] === ticBoard[c];
-    });
-}
-
-function resetTicTacToe() {
-    ticBoard = Array(9).fill('');
-    currentPlayer = 'X';
-    gameActive = true;
-    isPlayerTurn = true;
-    
-    document.querySelectorAll('.tic-cell').forEach(cell => {
-        cell.textContent = '';
-        cell.style.background = 'rgba(255,255,255,0.1)';
+// Professional animations and interactions
+document.addEventListener('DOMContentLoaded', function() {
+    // Add loading animation to service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+        card.classList.add('fade-in-up');
     });
     
-    const statusText = gameMode === 'friend' ? 'Player X\'s turn' : 'Your turn (X)';
-    document.getElementById('ticStatus').textContent = statusText;
-}
-
-// Memory Game
-function createMemoryGame() {
-    return `
-        <div style="text-align: center; color: white;">
-            <h2 style="color: #00bcd4; margin-bottom: 20px;">🧠 Memory Game</h2>
-            
-            <!-- Difficulty Selection -->
-            <div id="memoryDifficultySelection" style="margin-bottom: 30px;">
-                <p style="margin-bottom: 20px; font-size: 18px;">Choose difficulty level:</p>
-                <button onclick="startMemoryGame('easy')" style="padding: 12px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🟢 Easy (3x2)</button>
-                <button onclick="startMemoryGame('medium')" style="padding: 12px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🟡 Medium (4x3)</button>
-                <button onclick="startMemoryGame('hard')" style="padding: 12px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🔴 Hard (4x4)</button>
-            </div>
-            
-            <!-- Game Board (initially hidden) -->
-            <div id="memoryGameBoard" style="display: none;">
-                <div id="memoryDifficultyDisplay" style="margin-bottom: 15px; font-size: 16px; color: #888;"></div>
-                <div style="margin-bottom: 20px;">
-                    <span style="margin-right: 20px;">Score: <span id="memoryScore">0</span></span>
-                    <span style="margin-right: 20px;">Moves: <span id="memoryMoves">0</span></span>
-                    <span>Time: <span id="memoryTime">0</span>s</span>
-                </div>
-                <div id="memoryBoard" style="display: grid; gap: 8px; justify-content: center; margin: 20px 0;">
-                    <!-- Cards will be generated here -->
-                </div>
-                <div id="memoryStatus" style="font-size: 16px; margin: 20px 0; color: #00bcd4;">Find all matching pairs!</div>
-                <button onclick="resetMemoryGame()" style="padding: 10px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">New Game</button>
-                <button onclick="backToMemoryDifficultySelection()" style="padding: 10px 20px; background: #666; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">Change Difficulty</button>
-            </div>
-        </div>
-    `;
-}
-
-let memoryCards = [];
-let flippedCards = [];
-let matchedPairs = 0;
-let moves = 0;
-let memoryDifficulty = 'medium';
-let gameTimer = 0;
-let timerInterval = null;
-let totalPairs = 0;
-
-const difficultySettings = {
-    easy: { 
-        rows: 2, cols: 3, pairs: 3, 
-        symbols: ['🎮', '🎯', '🎲'],
-        cardSize: '70px', name: '🟢 Easy (3x2)'
-    },
-    medium: { 
-        rows: 3, cols: 4, pairs: 6, 
-        symbols: ['🎮', '🎯', '🎲', '🎪', '🎨', '🎭'],
-        cardSize: '60px', name: '🟡 Medium (4x3)'
-    },
-    hard: { 
-        rows: 4, cols: 4, pairs: 8, 
-        symbols: ['🎮', '🎯', '🎲', '🎪', '🎨', '🎭', '🎸', '🎺'],
-        cardSize: '55px', name: '🔴 Hard (4x4)'
-    }
-};
-
-function initMemoryGame() {
-    // Show difficulty selection, hide game board
-    document.getElementById('memoryDifficultySelection').style.display = 'block';
-    document.getElementById('memoryGameBoard').style.display = 'none';
-}
-
-function startMemoryGame(difficulty) {
-    memoryDifficulty = difficulty;
-    const settings = difficultySettings[difficulty];
-    totalPairs = settings.pairs;
-    
-    // Hide difficulty selection, show game board
-    document.getElementById('memoryDifficultySelection').style.display = 'none';
-    document.getElementById('memoryGameBoard').style.display = 'block';
-    
-    // Update difficulty display
-    document.getElementById('memoryDifficultyDisplay').textContent = settings.name;
-    
-    // Create shuffled cards
-    memoryCards = [...settings.symbols, ...settings.symbols].sort(() => Math.random() - 0.5);
-    flippedCards = [];
-    matchedPairs = 0;
-    moves = 0;
-    gameTimer = 0;
-    
-    // Update displays
-    document.getElementById('memoryScore').textContent = '0';
-    document.getElementById('memoryMoves').textContent = '0';
-    document.getElementById('memoryTime').textContent = '0';
-    document.getElementById('memoryStatus').textContent = 'Find all matching pairs!';
-    
-    // Create game board
-    createMemoryBoard(settings);
-    
-    // Start timer
-    if (timerInterval) clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-        gameTimer++;
-        document.getElementById('memoryTime').textContent = gameTimer;
-    }, 1000);
-}
-
-function createMemoryBoard(settings) {
-    const board = document.getElementById('memoryBoard');
-    board.style.gridTemplateColumns = `repeat(${settings.cols}, ${settings.cardSize})`;
-    board.innerHTML = '';
-    
-    for (let i = 0; i < memoryCards.length; i++) {
-        const card = document.createElement('button');
-        card.className = 'memory-card';
-        card.onclick = () => flipCard(i);
-        card.style.cssText = `
-            width: ${settings.cardSize}; 
-            height: ${settings.cardSize}; 
-            font-size: ${parseInt(settings.cardSize) * 0.4}px; 
-            background: rgba(255,255,255,0.1); 
-            border: 2px solid #00bcd4; 
-            color: white; 
-            cursor: pointer; 
-            border-radius: 10px; 
-            transition: all 0.3s;
-        `;
-        card.textContent = '?';
-        board.appendChild(card);
-    }
-}
-
-function backToMemoryDifficultySelection() {
-    if (timerInterval) clearInterval(timerInterval);
-    document.getElementById('memoryDifficultySelection').style.display = 'block';
-    document.getElementById('memoryGameBoard').style.display = 'none';
-}
-
-function flipCard(index) {
-    if (flippedCards.length >= 2 || flippedCards.includes(index)) return;
-    
-    const card = document.getElementsByClassName('memory-card')[index];
-    card.textContent = memoryCards[index];
-    card.style.background = 'rgba(0, 188, 212, 0.3)';
-    flippedCards.push(index);
-    
-    if (flippedCards.length === 2) {
-        moves++;
-        document.getElementById('memoryMoves').textContent = moves;
+    // Add hover effects to CTA buttons
+    const ctaButtons = document.querySelectorAll('.cta-button, .service-cta, .contact-btn');
+    ctaButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
         
-        setTimeout(() => {
-            if (memoryCards[flippedCards[0]] === memoryCards[flippedCards[1]]) {
-                // Match found
-                matchedPairs++;
-                document.getElementById('memoryScore').textContent = matchedPairs;
-                flippedCards.forEach(i => {
-                    document.getElementsByClassName('memory-card')[i].style.background = 'rgba(0, 188, 212, 0.5)';
-                });
-                
-                if (matchedPairs === totalPairs) {
-                    if (timerInterval) clearInterval(timerInterval);
-                    const difficultyBonus = memoryDifficulty === 'easy' ? 1 : memoryDifficulty === 'medium' ? 2 : 3;
-                    const timeBonus = Math.max(0, 100 - gameTimer);
-                    const finalScore = (matchedPairs * 10 * difficultyBonus) + timeBonus;
-                    document.getElementById('memoryStatus').innerHTML = `🎉 You won!<br>Time: ${gameTimer}s | Moves: ${moves} | Score: ${finalScore}`;
-                }
-            } else {
-                // No match
-                flippedCards.forEach(i => {
-                    const card = document.getElementsByClassName('memory-card')[i];
-                    card.textContent = '?';
-                    card.style.background = 'rgba(255,255,255,0.1)';
-                });
-            }
-            flippedCards = [];
-        }, 1000);
-    }
-}
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
 
-function resetMemoryGame() {
-    if (timerInterval) clearInterval(timerInterval);
-    startMemoryGame(memoryDifficulty); // Restart with same difficulty
-}
+// Smooth scroll behavior for all internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+console.log('Sinkhwal Services website initialized successfully!');

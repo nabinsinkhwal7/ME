@@ -1,24 +1,30 @@
 {
   "name": "nabin-sinkhwal-portfolio",
   "version": "2.0.0",
-  "description": "Personal portfolio website with advanced cache-busting for static files",
+  "description": "Sinkhwal Services - Professional business website with smart digital solutions, optimized for Cloudflare Pages deployment",
   "main": "index.html",
   "scripts": {
     "bust-cache": "node cache-buster.js",
     "deploy": "node deploy.js",
+    "cloudflare-deploy": "node cloudflare-deploy.js",
     "dev": "python -m http.server 8000 || php -S localhost:8000 || npx serve .",
     "test": "node cache-buster.js && echo 'Cache busting test completed'",
     "clean": "rm -rf .cache-backups || rmdir /s .cache-backups",
-    "backup": "node -e \"require('./cache-buster.js'); console.log('Manual backup created');\""
+    "backup": "node -e \"require('./cache-buster.js'); console.log('Manual backup created');\"",
+    "validate": "node -e \"require('./cloudflare-deploy.js').validateFiles()\"",
+    "build": "node cache-buster.js"
   },
   "keywords": [
-    "portfolio",
+    "business-website",
+    "sinkhwal-services",
+    "web-development",
+    "business-automation",
+    "school-management",
+    "cloudflare-pages",
     "static-site",
     "cache-busting",
-    "web-development",
-    "javascript",
-    "html",
-    "css"
+    "professional-services",
+    "digital-solutions"
   ],
   "author": "Nabin Sinkhwal <nsinkhwal@gmail.com>",
   "license": "MIT",

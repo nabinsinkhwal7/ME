@@ -203,6 +203,38 @@ function openServiceDetails(serviceId) {
             timeline: '3-12 weeks depending on process complexity'
         },
         
+        'bdr-blood-registry': {
+            title: 'BDR - Blood Donor Registry',
+            icon: '🩸',
+            description: 'Free public platform connecting blood donors with those in need during emergencies. A life-saving digital service with privacy protection and instant access.',
+            
+            features: [
+                'Emergency Blood Search - Find available donors instantly by blood group and location',
+                'Completely Free Service - No charges or hidden fees, purely a public service',
+                'Privacy Protected Registration - Information shared only with consent for emergencies',
+                'Quick Access System - Instant donor search and contact during critical situations',
+                'Direct Contact via Phone/WhatsApp - Immediate communication with available donors',
+                'Location-Based Search - Find donors in your specific area or nearby locations',
+                'Availability Control - Donors can update their availability status anytime',
+                'Secure Data Management - Encrypted storage with privacy protection'
+            ],
+            
+            technologies: ['Emergency Response System', 'Location Services', 'Privacy Protection', 'Real-time Communication', 'Public Health Service', 'Database Management'],
+            
+            impact: [
+                '🩸 Connect donors with emergency blood needs instantly',
+                '🆓 Completely free public service - no hidden costs',
+                '🔒 Privacy-first approach with consent-based sharing',
+                '⚡ Quick response during medical emergencies',
+                '📱 Direct communication via phone and WhatsApp',
+                '🌍 Location-based donor matching for faster access'
+            ],
+            
+            liveUrl: 'https://bdr.nabinsinkhwal.com.np',
+            pricing: 'Completely Free Public Service',
+            timeline: 'Instant access - register and start helping save lives'
+        },
+        
         'school-management': {
             title: 'School Management Systems (School360)',
             icon: '🏫',

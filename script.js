@@ -135,6 +135,22 @@ function scrollToAbout() {
 // Project Details Management
 function openProjectDetails(projectId) {
     const projectData = {
+        bdr: {
+            title: 'BDR - Blood Donor Registry',
+            description: 'A free public platform connecting blood donors with those in need during emergencies. This life-saving digital service helps save lives by providing instant access to blood donors while maintaining privacy and security.',
+            features: [
+                'Emergency Blood Search - Find available donors instantly by blood group and location',
+                'Completely Free Service - No charges or hidden fees, purely a public service',
+                'Privacy Protected Registration - Information shared only with consent for emergencies',
+                'Quick Access System - Instant donor search and contact during critical situations',
+                'Direct Contact via Phone/WhatsApp - Immediate communication with available donors',
+                'Location-Based Search - Find donors in your specific area or nearby locations',
+                'Availability Control - Donors can update their availability status anytime',
+                'Secure Data Management - Encrypted storage with privacy protection'
+            ],
+            technologies: ['Emergency Response System', 'Location-Based Services', 'Privacy Protection', 'Real-time Communication', 'Public Health Service'],
+            liveUrl: 'https://bdr.nabinsinkhwal.com.np'
+        },
         school360: {
             title: 'School360 - Student Fee & Billing Management System',
             description: 'One of my innovative solutions addressing real-world challenges in educational institutions. This modern web-based system transforms student fee and billing management by replacing tedious manual data saving methods with automated, efficient digital processes.',

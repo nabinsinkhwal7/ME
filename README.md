@@ -35,6 +35,16 @@ Visit: [https://nabinsinkhwal.com.np](https://nabinsinkhwal.com.np)
 
 ## 💼 Services
 
+### BDR - Blood Donor Registry
+A free public platform connecting blood donors with those in need during emergencies:
+- 🩸 Emergency Blood Donor Search
+- 🆓 Completely Free Service
+- 🔒 Privacy Protected Registration
+- ⚡ Quick Access by Blood Group & Location
+- 📱 Direct Contact via Phone/WhatsApp
+
+**Live at**: [bdr.nabinsinkhwal.com.np](https://bdr.nabinsinkhwal.com.np)
+
 ### School360
 Complete billing and management system for educational institutions featuring:
 - 📊 Student Management

@@ -1,0 +1,50 @@
+# Robots.txt for Sinkhwal Services
+# https://sinkhwalservices.com.np/robots.txt
+
+User-agent: *
+Allow: /
+
+# Important pages for crawling
+Allow: /index.html
+Allow: /styles.css
+Allow: /script.js
+Allow: /_headers
+Allow: /_redirects
+
+# Sitemap location
+Sitemap: https://sinkhwalservices.com.np/sitemap.xml
+
+# Crawl delay (optional - helps with server load)
+Crawl-delay: 1
+
+# Block access to backup files and sensitive directories
+Disallow: /.cache-backups/
+Disallow: /*.backup
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Google-specific directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

@@ -121,9 +121,9 @@ function initScrollEffects() {
 
     window.scrollToContact = function() {
         document.getElementById('contact-section').scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        behavior: 'smooth',
+        block: 'start'
+    });
     };
 }
 
@@ -137,7 +137,7 @@ function contactWhatsApp(serviceType) {
         
         'web-development': `Hi! I'm interested in your Web Development services. I'd like to discuss building a custom web application/website. Could you provide more details about your process and pricing?`,
         
-        'business-automation': `Hello! I'm looking for Business Automation solutions to streamline our processes. Could we discuss how you can help automate our workflows and improve efficiency?`,
+        'business-automation': `Hello! I'm interested in custom Business Automation solutions for my business. I'd like to discuss our current manual processes and explore how you can help us build automation systems to improve efficiency. Can we schedule a consultation?`,
         
         'school-management': `Hi! I'm interested in your School Management System (School360). We need a complete solution for student management and fee collection. Can we discuss our requirements?`,
         
@@ -185,39 +185,51 @@ function openServiceDetails(serviceId) {
                 '6. Maintenance & Support - Ongoing updates and technical support'
             ],
             
-            pricing: 'Starting from NPR 50,000 for basic websites. Custom applications quoted based on requirements.',
+            pricing: 'Starting from NPR 15,000 for basic websites. Custom applications quoted based on requirements.',
             timeline: '2-8 weeks depending on project complexity'
         },
         
         'business-automation': {
-            title: 'Business Automation Solutions',
+            title: 'Custom Business Automation Solutions',
             icon: '⚙️',
-            description: 'Eliminate manual processes and boost efficiency with custom automation solutions designed specifically for your business workflows.',
+            description: 'Let\'s build the perfect automation solution for your business! I specialize in creating custom systems that eliminate manual work and boost efficiency. Every business is unique, so let\'s discuss your specific needs.',
             
-            features: [
-                'Process Automation - Automate repetitive tasks and workflows',
-                'Data Entry Automation - Eliminate manual data input and reduce errors',
-                'Report Generation - Automated reports and analytics dashboards',
-                'Inventory Management - Real-time stock tracking and alerts',
-                'Customer Relationship Management - Automated customer communications',
-                'Financial Process Automation - Invoice generation and payment tracking',
-                'Document Management - Automated filing and retrieval systems',
-                'Integration Services - Connect existing systems and software'
+            capabilities: [
+                'Custom Process Analysis - Understanding your current workflows and identifying automation opportunities',
+                'Tailored Solution Design - Building automation systems specifically for your business processes',
+                'Data Entry Automation - Eliminate repetitive manual data input tasks',
+                'Report Generation Systems - Automated dashboards and analytics for better decision-making',
+                'Inventory & Stock Management - Real-time tracking and automated alerts',
+                'Customer Communication Automation - Streamlined customer relationship management',
+                'Financial Process Automation - Invoice generation, payment tracking, and accounting integration',
+                'Document Management Systems - Automated filing, retrieval, and workflow management',
+                'System Integration Services - Connect your existing software and databases'
             ],
             
-            technologies: ['Process Mining', 'Workflow Engines', 'Database Automation', 'API Integration', 'Cloud Services', 'Business Intelligence', 'Custom Software'],
+            technologies: ['Custom Software Development', 'Database Design', 'API Integration', 'Cloud Solutions', 'Workflow Automation', 'Business Intelligence', 'Process Optimization'],
+            
+            approach: [
+                '🔍 Free Consultation - Discuss your business processes and pain points',
+                '📋 Process Analysis - Identify the best automation opportunities',
+                '💡 Custom Solution Design - Create a tailored automation plan',
+                '🛠️ Development & Testing - Build and thoroughly test your solution',
+                '🚀 Implementation & Training - Deploy and train your team',
+                '📞 Ongoing Support - Continuous support and improvements'
+            ],
             
             benefits: [
-                '⏰ Save 60-80% of time spent on manual tasks',
-                '📊 Reduce human errors by up to 95%',
-                '💰 Lower operational costs significantly',
-                '📈 Improve business scalability and growth',
-                '🔍 Better data accuracy and reporting',
-                '🚀 Faster decision-making with real-time data'
+                '⏰ Save 60-80% of time on repetitive tasks',
+                '📊 Eliminate human errors and improve accuracy',
+                '💰 Reduce operational costs significantly',
+                '📈 Scale your business without hiring more staff',
+                '🔍 Get better insights with automated reporting',
+                '🚀 Focus on growth instead of manual processes'
             ],
             
-            pricing: 'Starting from NPR 75,000. ROI typically achieved within 3-6 months.',
-            timeline: '3-12 weeks depending on process complexity'
+            investment: 'Custom pricing based on your specific needs. Most projects start from NPR 50,000 with ROI typically achieved within 3-6 months.',
+            timeline: '2-8 weeks depending on complexity. We start with a free consultation to understand your requirements.',
+            
+            cta: 'Ready to automate your business processes? Let\'s discuss your specific needs and build something amazing together!'
         },
         
         'bdr-blood-registry': {
@@ -365,11 +377,11 @@ function openServiceDetails(serviceId) {
                 <h3>System Modules</h3>
                 <div class="modules-grid">
                     ${service.modules.map(module => `<div class="module-item">${module}</div>`).join('')}
-                </div>
             </div>
-        `;
-    }
-    
+        </div>
+    `;
+}
+
     // Pricing and timeline
     modalHTML += `
         <div class="modal-section pricing-section">

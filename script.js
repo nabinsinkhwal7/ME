@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initParticles();
     initServiceSystem();
     initScrollEffects();
+    initScrollIndicator();
 });
 
 // Particle System (maintained for professional tech aesthetic)
@@ -83,6 +84,22 @@ function initParticles() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         console.log('Canvas resized:', canvas.width, 'x', canvas.height);
+    });
+}
+
+// Initialize scroll indicator
+function initScrollIndicator() {
+    const indicator = document.querySelector('.scroll-indicator');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        
+        if (scrolled > maxScroll * 0.8) {
+            indicator.style.opacity = '0';
+        } else {
+            indicator.style.opacity = '0.3';
+        }
     });
 }
 
@@ -230,7 +247,7 @@ function openServiceDetails(serviceId) {
                 '🌍 Location-based donor matching for faster access'
             ],
             
-            liveUrl: 'https://bdr.nabinsinkhwal.com.np',
+            liveUrl: 'https://bdr.sinkhwalservices.com.np',
             pricing: 'Completely Free Public Service',
             timeline: 'Instant access - register and start helping save lives'
         },

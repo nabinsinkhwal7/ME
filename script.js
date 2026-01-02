@@ -149,7 +149,7 @@ function openProjectDetails(projectId) {
                 'Secure Data Management - Encrypted storage with privacy protection'
             ],
             technologies: ['Emergency Response System', 'Location-Based Services', 'Privacy Protection', 'Real-time Communication', 'Public Health Service'],
-            liveUrl: 'https://bdr.nabinsinkhwal.com.np'
+            liveUrl: 'https://bdr.sinkhwalservices.com.np'
         },
         school360: {
             title: 'School360 - Student Fee & Billing Management System',

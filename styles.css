@@ -603,17 +603,24 @@ body {
 
 .service-modal-content {
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.95));
-    margin: 2% auto;
+    margin: 5% auto;
     padding: 40px;
     border: 1px solid rgba(37, 99, 235, 0.3);
     border-radius: 25px;
-    width: 90%;
+    width: 80%;
     max-width: 800px;
+    max-height: 80vh;
     position: relative;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 60px rgba(37, 99, 235, 0.3);
-    max-height: 90vh;
     overflow-y: auto;
+    /* Hide scrollbars */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.service-modal-content::-webkit-scrollbar {
+    display: none; /* WebKit browsers */
 }
 
 .close-service {
@@ -840,6 +847,28 @@ body {
     animation: fade-in-up 0.8s ease-out forwards;
 }
 
+/* Extra small screens */
+@media (max-width: 480px) {
+    .service-modal-content {
+        margin: 3% auto;
+        width: 90%;
+        max-width: 95vw;
+        max-height: 90vh;
+        padding: 20px 10px;
+        border-radius: 10px;
+    }
+    
+    .close-service {
+        right: 10px;
+        top: 5px;
+        font-size: 24px;
+    }
+    
+    .service-modal-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .title {
@@ -922,9 +951,11 @@ body {
     
     .service-modal-content {
         margin: 5% auto;
-        width: 95%;
+        width: 85%;
+        max-width: 90vw;
+        max-height: 85vh;
         padding: 25px 15px;
-        max-width: calc(100vw - 20px);
+        border-radius: 15px;
         box-sizing: border-box;
     }
     

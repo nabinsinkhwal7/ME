@@ -719,25 +719,29 @@ body {
 }
 
 .testimonial-track {
-    display: flex;
-    transition: transform 0.5s ease;
+    position: relative;
+    height: 300px;
+    overflow: hidden;
 }
 
 .testimonial-card {
-    min-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     padding: var(--space-2xl);
     background: rgba(255, 255, 255, 0.03);
     border-radius: 12px;
     border: 1px solid var(--color-border);
-    margin: 0 var(--space-md);
-    opacity: 0.7;
-    transform: scale(0.95);
+    opacity: 0;
+    transform: translateX(100px);
     transition: all 0.5s ease;
+    box-sizing: border-box;
 }
 
 .testimonial-card.active {
     opacity: 1;
-    transform: scale(1);
+    transform: translateX(0);
 }
 
 .testimonial-quote {

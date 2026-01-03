@@ -483,18 +483,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Testimonial Carousel Functionality
 let currentTestimonialIndex = 0;
-const testimonials = document.querySelectorAll('.testimonial-card');
-const dots = document.querySelectorAll('.dot');
+let testimonials = [];
+let dots = [];
 
 function initTestimonialCarousel() {
+    // Re-select elements after DOM is loaded
+    testimonials = document.querySelectorAll('.testimonial-card');
+    dots = document.querySelectorAll('.dot');
+    
     if (testimonials.length === 0) return;
+    
+    // Initialize first testimonial as active
+    showTestimonial(currentTestimonialIndex);
     
     // Auto-rotate testimonials every 5 seconds
     setInterval(function() {
         changeTestimonial(1);
     }, 5000);
-    
-    showTestimonial(currentTestimonialIndex);
 }
 
 function showTestimonial(index) {

@@ -48,11 +48,11 @@ function initParticles() {
             }
         }
         draw() {
-            // Professional glow effect
-            ctx.shadowBlur = 12;
-            ctx.shadowColor = 'rgba(37, 99, 235, 0.4)'; // Professional blue glow
+            // Subtle particle effect for bright theme
+            ctx.shadowBlur = 6;
+            ctx.shadowColor = 'rgba(37, 99, 235, 0.3)';
             
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.7})`;
+            ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity * 0.4})`;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
@@ -524,23 +524,26 @@ function toggleFAQ(element) {
     const answer = element.nextElementSibling;
     const isActive = element.classList.contains('active');
     
-    // Close all other FAQ items
+    // Close ALL FAQ items first (including the current one)
     document.querySelectorAll('.faq-question').forEach(q => {
         q.classList.remove('active');
         const qAnswer = q.nextElementSibling;
-        if (qAnswer) {
+        if (qAnswer && qAnswer.classList.contains('faq-answer')) {
             qAnswer.classList.remove('active');
+            qAnswer.style.maxHeight = '';
+            qAnswer.style.padding = '';
         }
     });
     
-    // Toggle current item
-    if (!isActive && answer) {
+    // Only open current item if it wasn't previously active
+    if (!isActive && answer && answer.classList.contains('faq-answer')) {
         element.classList.add('active');
         answer.classList.add('active');
-        console.log('FAQ opened:', element.textContent.trim());
-    } else {
-        console.log('FAQ closed');
+        
+        // Apply styles for smooth animation
+        answer.style.maxHeight = '600px';
+        answer.style.padding = '16px 0 24px 0';
     }
 }
 
-console.log('Sinkhwal Services website initialized successfully!');
+// Sinkhwal Services website initialized

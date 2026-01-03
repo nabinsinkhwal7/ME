@@ -139,8 +139,6 @@ function contactWhatsApp(serviceType) {
         
         'web-development': `Hi! I'm interested in your Web Development services. I'd like to discuss building a custom web application/website. Could you provide more details about your process and pricing?`,
         
-        'business-automation': `Hello! I'm interested in custom Business Automation solutions for my business. I'd like to discuss our current manual processes and explore how you can help us build automation systems to improve efficiency. Can we schedule a consultation?`,
-        
         'school-management': `Hi! I'm interested in your School Management System (School360). We need a complete solution for student management and fee collection. Can we discuss our requirements?`,
         
         'consultation': `Hello! I'd like to schedule a free consultation to discuss how Sinkhwal Services can help transform our business with digital solutions. When would be a good time to talk?`
@@ -189,49 +187,6 @@ function openServiceDetails(serviceId) {
             
             pricing: 'Starting from NPR 15,000 for basic websites. Custom applications quoted based on requirements.',
             timeline: '2-8 weeks depending on project complexity'
-        },
-        
-        'business-automation': {
-            title: 'Custom Business Automation Solutions',
-            icon: '⚙️',
-            description: 'Let\'s build the perfect automation solution for your business! I specialize in creating custom systems that eliminate manual work and boost efficiency. Every business is unique, so let\'s discuss your specific needs.',
-            
-            capabilities: [
-                'Custom Process Analysis - Understanding your current workflows and identifying automation opportunities',
-                'Tailored Solution Design - Building automation systems specifically for your business processes',
-                'Data Entry Automation - Eliminate repetitive manual data input tasks',
-                'Report Generation Systems - Automated dashboards and analytics for better decision-making',
-                'Inventory & Stock Management - Real-time tracking and automated alerts',
-                'Customer Communication Automation - Streamlined customer relationship management',
-                'Financial Process Automation - Invoice generation, payment tracking, and accounting integration',
-                'Document Management Systems - Automated filing, retrieval, and workflow management',
-                'System Integration Services - Connect your existing software and databases'
-            ],
-            
-            technologies: ['Custom Software Development', 'Database Design', 'API Integration', 'Cloud Solutions', 'Workflow Automation', 'Business Intelligence', 'Process Optimization'],
-            
-            approach: [
-                '🔍 Free Consultation - Discuss your business processes and pain points',
-                '📋 Process Analysis - Identify the best automation opportunities',
-                '💡 Custom Solution Design - Create a tailored automation plan',
-                '🛠️ Development & Testing - Build and thoroughly test your solution',
-                '🚀 Implementation & Training - Deploy and train your team',
-                '📞 Ongoing Support - Continuous support and improvements'
-            ],
-            
-            benefits: [
-                '⏰ Save 60-80% of time on repetitive tasks',
-                '📊 Eliminate human errors and improve accuracy',
-                '💰 Reduce operational costs significantly',
-                '📈 Scale your business without hiring more staff',
-                '🔍 Get better insights with automated reporting',
-                '🚀 Focus on growth instead of manual processes'
-            ],
-            
-            investment: 'Custom pricing based on your specific needs. Most projects start from NPR 50,000 with ROI typically achieved within 3-6 months.',
-            timeline: '2-8 weeks depending on complexity. We start with a free consultation to understand your requirements.',
-            
-            cta: 'Ready to automate your business processes? Let\'s discuss your specific needs and build something amazing together!'
         },
         
         'bdr-blood-registry': {
@@ -321,7 +276,7 @@ function openServiceDetails(serviceId) {
             <div class="service-modal-icon">${service.icon}</div>
             <h2>${service.title}</h2>
             <p class="service-modal-description">${service.description}</p>
-        </div>
+            </div>
     `;
     
     // Features section
@@ -332,7 +287,7 @@ function openServiceDetails(serviceId) {
                 <ul class="feature-list">
                     ${service.features.map(feature => `<li>${feature}</li>`).join('')}
                 </ul>
-            </div>
+                </div>
         `;
     }
     
@@ -343,11 +298,11 @@ function openServiceDetails(serviceId) {
                 <h3>Technologies Used</h3>
                 <div class="tech-tags">
                     ${service.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                </div>
             </div>
-        `;
-    }
-    
+        </div>
+    `;
+}
+
     // Process section (for web development)
     if (service.process) {
         modalHTML += `
@@ -572,13 +527,19 @@ function toggleFAQ(element) {
     // Close all other FAQ items
     document.querySelectorAll('.faq-question').forEach(q => {
         q.classList.remove('active');
-        q.nextElementSibling.classList.remove('active');
+        const qAnswer = q.nextElementSibling;
+        if (qAnswer) {
+            qAnswer.classList.remove('active');
+        }
     });
     
     // Toggle current item
-    if (!isActive) {
+    if (!isActive && answer) {
         element.classList.add('active');
         answer.classList.add('active');
+        console.log('FAQ opened:', element.textContent.trim());
+    } else {
+        console.log('FAQ closed');
     }
 }
 

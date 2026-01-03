@@ -118,7 +118,7 @@
 <body>
     <div class="glow-line"></div>
     <canvas class="particles"></canvas>
-    
+
     <!-- Hero Section with Problem-Focused Messaging -->
     <div class="hero-section">
         <div class="hero-content">
@@ -283,18 +283,67 @@
                 </button>
             </div>
             
-            <div class="service-card" onclick="openServiceDetails('business-automation')">
-                <div class="service-icon">⚙️</div>
-                <h3>Custom Business Automation Nepal</h3>
-                <p>Let's build the perfect automation solution for your business! Custom-designed systems to eliminate manual work and boost efficiency. Every business is unique - let's discuss your specific needs.</p>
-                <div class="service-features">
-                    <span class="feature-tag">🔍 Free Consultation</span>
-                    <span class="feature-tag">💡 Custom Solutions</span>
-                    <span class="feature-tag">⚙️ Process Automation</span>
-                    <span class="feature-tag">📊 Workflow Design</span>
+        </div>
+    </div>
+
+    <!-- How We Work Section -->
+    <div class="process-section">
+        <div class="process-content">
+            <h2 class="process-title">How we work together</h2>
+            <p class="process-subtitle">A simple, transparent process that gets you from problem to solution</p>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Free Consultation</h3>
+                        <p class="step-description">We start with a detailed conversation about your current challenges. No sales pitch - just understanding your business and identifying opportunities for improvement.</p>
+                        <div class="step-duration">Duration: 30-60 minutes</div>
+                    </div>
                 </div>
-                <button class="service-cta" onclick="event.stopPropagation(); contactWhatsApp('business-automation')">
-                    Schedule Consultation
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Solution Design</h3>
+                        <p class="step-description">We create a detailed plan showing exactly how we'll solve your problem, including timeline, features, and cost. You'll see mockups and understand every step before we start.</p>
+                        <div class="step-duration">Duration: 2-3 days</div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Development & Testing</h3>
+                        <p class="step-description">We build your solution with regular check-ins and updates. You'll see progress weekly and can request changes along the way. Everything is tested thoroughly before delivery.</p>
+                        <div class="step-duration">Duration: 2-8 weeks</div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Training & Launch</h3>
+                        <p class="step-description">We train your team, help with data migration, and ensure everything works perfectly. You'll be confident using your new system from day one.</p>
+                        <div class="step-duration">Duration: 1-2 weeks</div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Ongoing Support</h3>
+                        <p class="step-description">6 months of free support included. We're always available on WhatsApp for questions and provide regular updates to keep your system running smoothly.</p>
+                        <div class="step-duration">Duration: Ongoing</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-cta">
+                <p class="process-cta-text">Ready to get started? Let's discuss your project.</p>
+                <button class="cta-button primary" onclick="contactWhatsApp('project-discussion')">
+                    <span class="cta-icon">🚀</span>
+                    Start Your Project
                 </button>
             </div>
         </div>
@@ -366,6 +415,26 @@
                         <p>While we're based in Nepal and understand local business needs perfectly, we work with clients globally. Remote collaboration is our specialty - we've successfully delivered projects for businesses in India, Australia, and the Middle East.</p>
                     </div>
                 </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What makes you different from other developers?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We focus on solving real business problems, not just building software. You work directly with experienced developers (no middlemen), get fixed pricing with no surprises, and receive ongoing support. Plus, we understand Nepali business culture and challenges, which helps us build more relevant solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I see examples of your previous work?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! You can check out our live School360 demo, visit the BDR Blood Registry platform, or we can show you case studies during our consultation. We're proud of our work and happy to share examples relevant to your industry.</p>
+                    </div>
+                </div>
             </div>
             
             <div class="faq-cta">
@@ -373,91 +442,6 @@
                 <button class="cta-button primary" onclick="contactWhatsApp('consultation')">
                     <span class="cta-icon">💬</span>
                     Get Free Consultation
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- How We Work Section -->
-    <div class="process-section">
-        <div class="process-content">
-            <h2 class="process-title">How we work together</h2>
-            <p class="process-subtitle">A simple, transparent process that gets you from problem to solution</p>
-            
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Free Consultation</h3>
-                        <p class="step-description">We start with a detailed conversation about your current challenges. No sales pitch - just understanding your business and identifying opportunities for improvement.</p>
-                        <div class="step-duration">Duration: 30-60 minutes</div>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Solution Design</h3>
-                        <p class="step-description">We create a detailed plan showing exactly how we'll solve your problem, including timeline, features, and cost. You'll see mockups and understand every step before we start.</p>
-                        <div class="step-duration">Duration: 2-3 days</div>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Development & Testing</h3>
-                        <p class="step-description">We build your solution with regular check-ins and updates. You'll see progress weekly and can request changes along the way. Everything is tested thoroughly before delivery.</p>
-                        <div class="step-duration">Duration: 2-8 weeks</div>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Training & Launch</h3>
-                        <p class="step-description">We train your team, help with data migration, and ensure everything works perfectly. You'll be confident using your new system from day one.</p>
-                        <div class="step-duration">Duration: 1-2 weeks</div>
-                    </div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Ongoing Support</h3>
-                        <p class="step-description">6 months of free support included. We're always available on WhatsApp for questions and provide regular updates to keep your system running smoothly.</p>
-                        <div class="step-duration">Duration: Ongoing</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="process-guarantees">
-                <h3 class="guarantees-title">Our Guarantees</h3>
-                <div class="guarantees-grid">
-                    <div class="guarantee-item">
-                        <div class="guarantee-icon">✅</div>
-                        <div class="guarantee-text">Fixed price - no hidden costs</div>
-                    </div>
-                    <div class="guarantee-item">
-                        <div class="guarantee-icon">⏰</div>
-                        <div class="guarantee-text">On-time delivery or money back</div>
-                    </div>
-                    <div class="guarantee-item">
-                        <div class="guarantee-icon">🔒</div>
-                        <div class="guarantee-text">Your data stays private and secure</div>
-                    </div>
-                    <div class="guarantee-item">
-                        <div class="guarantee-icon">🛠️</div>
-                        <div class="guarantee-text">6 months free support included</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="process-cta">
-                <p class="process-cta-text">Ready to get started? Let's discuss your project.</p>
-                <button class="cta-button primary" onclick="contactWhatsApp('project-discussion')">
-                    <span class="cta-icon">🚀</span>
-                    Start Your Project
                 </button>
             </div>
         </div>
@@ -525,32 +509,6 @@
                 </div>
             </div>
 
-            <!-- Trust Indicators -->
-            <div class="trust-indicators">
-                <h3 class="trust-title">Why businesses trust us</h3>
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <div class="trust-stat">5+</div>
-                        <div class="trust-label">Years in Business</div>
-                        <div class="trust-detail">Established 2019, growing stronger every year</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-stat">100%</div>
-                        <div class="trust-label">Project Success Rate</div>
-                        <div class="trust-detail">Every project delivered on time and on budget</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-stat">50+</div>
-                        <div class="trust-label">Happy Clients</div>
-                        <div class="trust-detail">From small businesses to large organizations</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-stat">24/7</div>
-                        <div class="trust-label">Support Available</div>
-                        <div class="trust-detail">WhatsApp support with 1-hour response time</div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Technical Expertise -->
             <div class="expertise-showcase">
@@ -602,57 +560,9 @@
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <div id="contact-section" class="contact-section">
-        <div class="contact-content">
-            <h2 class="contact-title">Get In Touch</h2>
-            <p class="contact-subtitle">Ready to start your digital transformation? Contact us for a free consultation.</p>
-            
-            <div class="contact-grid">
-                <div class="contact-method" onclick="contactWhatsApp('general')">
-                    <div class="contact-icon">💬</div>
-                    <h3>WhatsApp Business</h3>
-                    <p>+977 9869131707</p>
-                    <span class="contact-status">Usually responds within 1 hour</span>
+                    </div>
                 </div>
                 
-                <div class="contact-method" onclick="window.location.href='mailto:nsinkhwal@gmail.com?subject=Business Inquiry - Sinkhwal Services'">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>nsinkhwal@gmail.com</p>
-                    <span class="contact-status">Professional inquiries welcome</span>
-                </div>
-                
-                <div class="contact-method" onclick="window.open('https://www.linkedin.com/in/nabin-sinkhwal-575262355/', '_blank')">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <p>Professional Network</p>
-                    <span class="contact-status">Connect for business opportunities</span>
-                </div>
-            </div>
-
-            <div class="business-hours" style="display: none;">
-                <h3>Business Hours</h3>
-                <div class="hours-grid">
-                    <div class="hours-item">
-                        <span class="day">Monday - Friday</span>
-                        <span class="time">9:00 AM - 6:00 PM (NPT)</span>
-                    </div>
-                    <div class="hours-item">
-                        <span class="day">Saturday</span>
-                        <span class="time">10:00 AM - 4:00 PM (NPT)</span>
-                    </div>
-                    <div class="hours-item">
-                        <span class="day">Sunday</span>
-                        <span class="time">Emergency support only</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Service Details Modal -->
     <div id="serviceModal" class="service-modal">
@@ -666,7 +576,7 @@
 
     <!-- Scroll Indicator -->
     <div class="scroll-indicator">↓ Scroll</div>
-
+    
     <!-- Cache-busted JavaScript -->
     <script src="script.js?v=1767368257100"></script>
 </body>

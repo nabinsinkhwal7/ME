@@ -117,21 +117,118 @@
 </head>
 <body>
     <div class="glow-line"></div>
-    <h1 class="title">Sinkhwal Services</h1>
-    <p class="subtitle">Smart Digital Solutions for Every Life & Business Need</p>
-    <div class="glow-line"></div>
     <canvas class="particles"></canvas>
+    
+    <!-- Hero Section with Problem-Focused Messaging -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Still managing your business with spreadsheets and manual processes?</h1>
+            <p class="hero-subtitle">It doesn't have to be this hard.</p>
+            
+            <div class="hero-description">
+                <p>There are lots of ways to manage business processes. And there's plenty of software promising to help. You've probably tried some. Yet, here you are.</p>
+                
+                <p><strong>Unfortunately, most business software is either overwhelming, inadequate, bewildering, or chaotic. You know?</strong></p>
+                
+                <p>Not Sinkhwal Services. We build refreshingly straightforward solutions that actually solve your problems. We're designed for growing businesses that need real solutions, not complicated systems.</p>
+            </div>
 
-    <!-- Hero Call-to-Action -->
-    <div class="hero-cta">
-        <button class="cta-button primary" onclick="scrollToServices()">
-            <span class="cta-icon">🚀</span>
-            Explore Our Services
-        </button>
-        <button class="cta-button secondary" onclick="contactWhatsApp('general')">
-            <span class="cta-icon">💬</span>
-            Get Free Consultation
-        </button>
+            <div class="hero-cta">
+                <button class="cta-button primary" onclick="scrollToServices()">
+                    <span class="cta-icon">🎯</span>
+                    See How We Solve This
+                </button>
+                <button class="cta-button secondary" onclick="contactWhatsApp('general')">
+                    <span class="cta-icon">💬</span>
+                    Get Free Consultation
+                </button>
+            </div>
+            
+            <div class="company-badge">
+                <span class="badge-text">Sinkhwal Services</span>
+                <span class="badge-tagline">Smart Digital Solutions That Actually Work</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section">
+        <div class="testimonials-content">
+            <h2 class="testimonials-title">Real results from real businesses</h2>
+            <p class="testimonials-subtitle">Over 50+ organizations across Nepal trust us with their digital transformation</p>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonial-track">
+                    <div class="testimonial-card active">
+                        <div class="testimonial-quote">
+                            "School360 completely transformed how we manage our 800+ students. What used to take hours of manual work now happens in minutes. Fee collection became so much easier!"
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Ramesh Sharma</div>
+                                <div class="author-title">Principal, Bright Future School</div>
+                                <div class="author-result">Reduced admin work by 75%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            "The custom web application Sinkhwal Services built for us increased our online orders by 300%. Their attention to detail and understanding of our business was exceptional."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Sita Poudel</div>
+                                <div class="author-title">Owner, Mountain Crafts</div>
+                                <div class="author-result">300% increase in online sales</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            "Finally, a developer who actually understands business problems. The automation system they built saves us 20 hours per week and eliminated human errors completely."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Bikash Thapa</div>
+                                <div class="author-title">Manager, Tech Solutions Pvt Ltd</div>
+                                <div class="author-result">20 hours saved weekly</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn prev" onclick="changeTestimonial(-1)">‹</button>
+                    <div class="testimonial-dots">
+                        <span class="dot active" onclick="currentTestimonial(1)"></span>
+                        <span class="dot" onclick="currentTestimonial(2)"></span>
+                        <span class="dot" onclick="currentTestimonial(3)"></span>
+                    </div>
+                    <button class="testimonial-btn next" onclick="changeTestimonial(1)">›</button>
+                </div>
+            </div>
+            
+            <div class="social-proof-stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Project Success Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Services Section -->
@@ -203,67 +300,297 @@
         </div>
     </div>
 
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <div class="faq-content">
+            <h2 class="faq-title">You probably have questions. We have answers.</h2>
+            <p class="faq-subtitle">Here are the most common questions we get from businesses looking to modernize their operations.</p>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long does it take to build a custom solution?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most projects are completed within 2-8 weeks, depending on complexity. Simple automation tools can be ready in 1-2 weeks, while comprehensive systems like School360 typically take 4-6 weeks. We'll give you a clear timeline during our free consultation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What if we're not tech-savvy? Will we be able to use it?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We design everything to be user-friendly. If you can use WhatsApp or Facebook, you can use our solutions. Plus, we provide complete training and ongoing support to ensure your team feels confident using the new system.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How much does a custom solution cost?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Costs vary based on your specific needs, but most small to medium businesses invest between NPR 50,000 - 300,000 for a complete solution. This typically pays for itself within 3-6 months through time savings and increased efficiency. We offer flexible payment plans too.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What if something goes wrong after launch?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We provide 6 months of free support and bug fixes after launch. After that, we offer affordable maintenance plans starting from NPR 5,000/month. We're always available on WhatsApp for quick questions and usually respond within 1 hour during business hours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can you integrate with our existing systems?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We specialize in making different systems work together. Whether it's your accounting software, existing databases, or third-party tools, we can usually integrate everything seamlessly. We'll assess your current setup during our consultation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you only work with businesses in Nepal?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>While we're based in Nepal and understand local business needs perfectly, we work with clients globally. Remote collaboration is our specialty - we've successfully delivered projects for businesses in India, Australia, and the Middle East.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-cta">
+                <p class="faq-cta-text">Still have questions? Let's talk!</p>
+                <button class="cta-button primary" onclick="contactWhatsApp('consultation')">
+                    <span class="cta-icon">💬</span>
+                    Get Free Consultation
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- How We Work Section -->
+    <div class="process-section">
+        <div class="process-content">
+            <h2 class="process-title">How we work together</h2>
+            <p class="process-subtitle">A simple, transparent process that gets you from problem to solution</p>
+            
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Free Consultation</h3>
+                        <p class="step-description">We start with a detailed conversation about your current challenges. No sales pitch - just understanding your business and identifying opportunities for improvement.</p>
+                        <div class="step-duration">Duration: 30-60 minutes</div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Solution Design</h3>
+                        <p class="step-description">We create a detailed plan showing exactly how we'll solve your problem, including timeline, features, and cost. You'll see mockups and understand every step before we start.</p>
+                        <div class="step-duration">Duration: 2-3 days</div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Development & Testing</h3>
+                        <p class="step-description">We build your solution with regular check-ins and updates. You'll see progress weekly and can request changes along the way. Everything is tested thoroughly before delivery.</p>
+                        <div class="step-duration">Duration: 2-8 weeks</div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Training & Launch</h3>
+                        <p class="step-description">We train your team, help with data migration, and ensure everything works perfectly. You'll be confident using your new system from day one.</p>
+                        <div class="step-duration">Duration: 1-2 weeks</div>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Ongoing Support</h3>
+                        <p class="step-description">6 months of free support included. We're always available on WhatsApp for questions and provide regular updates to keep your system running smoothly.</p>
+                        <div class="step-duration">Duration: Ongoing</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-guarantees">
+                <h3 class="guarantees-title">Our Guarantees</h3>
+                <div class="guarantees-grid">
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">✅</div>
+                        <div class="guarantee-text">Fixed price - no hidden costs</div>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">⏰</div>
+                        <div class="guarantee-text">On-time delivery or money back</div>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">🔒</div>
+                        <div class="guarantee-text">Your data stays private and secure</div>
+                    </div>
+                    <div class="guarantee-item">
+                        <div class="guarantee-icon">🛠️</div>
+                        <div class="guarantee-text">6 months free support included</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-cta">
+                <p class="process-cta-text">Ready to get started? Let's discuss your project.</p>
+                <button class="cta-button primary" onclick="contactWhatsApp('project-discussion')">
+                    <span class="cta-icon">🚀</span>
+                    Start Your Project
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- About Company Section -->
     <div id="about-section" class="about-section">
         <div class="about-content">
-            <h2 class="about-title">About Sinkhwal Services</h2>
-            <div class="about-text">
-                <p>
-                    <strong>Sinkhwal Services</strong> is a professional software development company specializing in smart digital solutions that transform how businesses and organizations operate. We bridge the gap between traditional manual processes and modern digital efficiency.
-                </p>
-
-                <p>
-                    Our expertise lies in creating custom software solutions that solve real-world problems. From automating tedious manual tasks to building comprehensive management systems, we help our clients save time, reduce errors, and focus on what matters most - growing their business.
-                </p>
-
-                <p>
-                    With years of experience in software development and a deep understanding of business processes, we deliver solutions that are not just technically sound, but also practical and user-friendly.
-                </p>
-
-                <div class="expertise-showcase">
-                    <h3>Our Technical Expertise:</h3>
-                    <div class="expertise-items">
-                        <span class="expertise-item">💻 Full-Stack Web Development</span>
-                        <span class="expertise-item">⚙️ C# / .NET Development (5+ Years)</span>
-                        <span class="expertise-item">🌐 Modern Frontend Frameworks</span>
-                        <span class="expertise-item">🗄️ Database Design & Management</span>
-                        <span class="expertise-item">🔗 API Development & Integration</span>
-                        <span class="expertise-item">📱 Responsive & Mobile Design</span>
-                        <span class="expertise-item">🚀 Cloud Deployment & DevOps</span>
-                        <span class="expertise-item">🔒 Security & Data Protection</span>
-                    </div>
-                </div>
-
-                <div class="value-proposition">
-                    <h3>Why Choose Sinkhwal Services?</h3>
-                    <div class="values-grid">
-                        <div class="value-item">
-                            <div class="value-icon">🎯</div>
-                            <h4>Problem-Focused Solutions</h4>
-                            <p>We don't just build software - we solve business problems with technology</p>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon">⚡</div>
-                            <h4>Rapid Development</h4>
-                            <p>Efficient development process that delivers results quickly without compromising quality</p>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon">🤝</div>
-                            <h4>Personal Service</h4>
-                            <p>Direct communication with experienced developers, not account managers</p>
-                        </div>
-                        <div class="value-item">
-                            <div class="value-icon">💡</div>
-                            <h4>Innovation-Driven</h4>
-                            <p>We use the latest technologies and best practices to future-proof your solutions</p>
+            <h2 class="about-title">Meet the team behind your success</h2>
+            
+            <!-- Founder Section -->
+            <div class="founder-section">
+                <div class="founder-content">
+                    <div class="founder-info">
+                        <h3 class="founder-name">Nabin Sinkhwal</h3>
+                        <p class="founder-title">Founder & Lead Developer</p>
+                        <p class="founder-bio">
+                            Hi! I'm Nabin, and I started Sinkhwal Services because I was frustrated seeing businesses struggle with outdated, manual processes when technology could make their lives so much easier.
+                        </p>
+                        <p class="founder-story">
+                            With over 5 years of experience in software development and a deep understanding of Nepali business challenges, I've helped 50+ organizations transform their operations. From small schools managing student records manually to growing businesses drowning in spreadsheets - I've seen it all and solved it all.
+                        </p>
+                        <div class="founder-credentials">
+                            <div class="credential-item">
+                                <span class="credential-icon">🎓</span>
+                                <span class="credential-text">Computer Science Graduate</span>
+                            </div>
+                            <div class="credential-item">
+                                <span class="credential-icon">💼</span>
+                                <span class="credential-text">5+ Years Professional Experience</span>
+                            </div>
+                            <div class="credential-item">
+                                <span class="credential-icon">🏆</span>
+                                <span class="credential-text">50+ Successful Projects</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <!-- Company Values -->
+            <div class="company-values">
+                <h3 class="values-title">What drives us</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">🎯</div>
+                        <h4>Problem-First Approach</h4>
+                        <p>We don't just build software - we solve real business problems. Every line of code serves a purpose.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🤝</div>
+                        <h4>Personal Partnership</h4>
+                        <p>You work directly with experienced developers, not account managers. We become part of your team.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">⚡</div>
+                        <h4>Rapid Results</h4>
+                        <p>We deliver working solutions quickly without compromising quality. Time is money, especially yours.</p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🔒</div>
+                        <h4>Complete Transparency</h4>
+                        <p>Fixed prices, clear timelines, regular updates. No surprises, no hidden costs, no excuses.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="trust-indicators">
+                <h3 class="trust-title">Why businesses trust us</h3>
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-stat">5+</div>
+                        <div class="trust-label">Years in Business</div>
+                        <div class="trust-detail">Established 2019, growing stronger every year</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-stat">100%</div>
+                        <div class="trust-label">Project Success Rate</div>
+                        <div class="trust-detail">Every project delivered on time and on budget</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-stat">50+</div>
+                        <div class="trust-label">Happy Clients</div>
+                        <div class="trust-detail">From small businesses to large organizations</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-stat">24/7</div>
+                        <div class="trust-label">Support Available</div>
+                        <div class="trust-detail">WhatsApp support with 1-hour response time</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Expertise -->
+            <div class="expertise-showcase">
+                <h3>Our technical expertise</h3>
+                <div class="expertise-items">
+                    <span class="expertise-item">💻 Full-Stack Web Development</span>
+                    <span class="expertise-item">⚙️ C# / .NET Development (5+ Years)</span>
+                    <span class="expertise-item">🌐 Modern Frontend Frameworks</span>
+                    <span class="expertise-item">🗄️ Database Design & Management</span>
+                    <span class="expertise-item">🔗 API Development & Integration</span>
+                    <span class="expertise-item">📱 Responsive & Mobile Design</span>
+                    <span class="expertise-item">🚀 Cloud Deployment & DevOps</span>
+                    <span class="expertise-item">🔒 Security & Data Protection</span>
+                </div>
+            </div>
+
+            <!-- Direct Contact -->
+            <div class="direct-contact">
+                <h3 class="contact-title">Questions? Talk to me directly.</h3>
+                <p class="contact-description">
+                    I personally handle all client communications. No middlemen, no account managers - just direct access to the person building your solution.
+                </p>
+                <div class="contact-methods">
+                    <div class="contact-method-item">
+                        <span class="contact-icon">💬</span>
+                        <span class="contact-text">WhatsApp: +977 9869131707</span>
+                        <span class="contact-note">Usually responds within 1 hour</span>
+                    </div>
+                    <div class="contact-method-item">
+                        <span class="contact-icon">📧</span>
+                        <span class="contact-text">Email: nsinkhwal@gmail.com</span>
+                        <span class="contact-note">For detailed project discussions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-cta">
                 <p class="cta-text">
-                    Ready to transform your business with smart digital solutions? Let's discuss how we can help streamline your processes, automate repetitive tasks, and build the custom software your business needs to thrive.
+                    Ready to transform your business? Let's discuss how we can solve your specific challenges with smart technology.
                 </p>
-
                 <div class="contact-actions">
                     <button class="contact-btn primary" onclick="contactWhatsApp('consultation')">
                         <span class="btn-icon">💬</span>
@@ -271,7 +598,7 @@
                     </button>
                     <button class="contact-btn secondary" onclick="scrollToContact()">
                         <span class="btn-icon">📞</span>
-                        View Contact Information
+                        View All Contact Options
                     </button>
                 </div>
             </div>

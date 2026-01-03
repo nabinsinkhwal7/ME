@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initServiceSystem();
     initScrollEffects();
     initScrollIndicator();
+    initTestimonialCarousel();
+    initFAQAccordion();
 });
 
 // Particle System (maintained for professional tech aesthetic)
@@ -478,5 +480,101 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Testimonial Carousel Functionality
+let currentTestimonialIndex = 0;
+const testimonials = document.querySelectorAll('.testimonial-card');
+const dots = document.querySelectorAll('.dot');
+
+function initTestimonialCarousel() {
+    if (testimonials.length === 0) return;
+    
+    // Auto-rotate testimonials every 5 seconds
+    setInterval(function() {
+        changeTestimonial(1);
+    }, 5000);
+    
+    showTestimonial(currentTestimonialIndex);
+}
+
+function showTestimonial(index) {
+    // Hide all testimonials
+    testimonials.forEach(testimonial => {
+        testimonial.classList.remove('active');
+    });
+    
+    // Remove active class from all dots
+    dots.forEach(dot => {
+        dot.classList.remove('active');
+    });
+    
+    // Show current testimonial
+    if (testimonials[index]) {
+        testimonials[index].classList.add('active');
+    }
+    
+    // Activate current dot
+    if (dots[index]) {
+        dots[index].classList.add('active');
+    }
+}
+
+function changeTestimonial(direction) {
+    currentTestimonialIndex += direction;
+    
+    if (currentTestimonialIndex >= testimonials.length) {
+        currentTestimonialIndex = 0;
+    } else if (currentTestimonialIndex < 0) {
+        currentTestimonialIndex = testimonials.length - 1;
+    }
+    
+    showTestimonial(currentTestimonialIndex);
+}
+
+function currentTestimonial(index) {
+    currentTestimonialIndex = index - 1;
+    showTestimonial(currentTestimonialIndex);
+}
+
+// FAQ Accordion Functionality
+function initFAQAccordion() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const answer = this.nextElementSibling;
+            const isActive = this.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqQuestions.forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                this.classList.add('active');
+                answer.classList.add('active');
+            }
+        });
+    });
+}
+
+function toggleFAQ(element) {
+    const answer = element.nextElementSibling;
+    const isActive = element.classList.contains('active');
+    
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.classList.remove('active');
+        q.nextElementSibling.classList.remove('active');
+    });
+    
+    // Toggle current item
+    if (!isActive) {
+        element.classList.add('active');
+        answer.classList.add('active');
+    }
+}
 
 console.log('Sinkhwal Services website initialized successfully!');

@@ -135,13 +135,13 @@ function contactWhatsApp(serviceType) {
     const baseUrl = `https://wa.me/${phoneNumber}`;
     
     const messages = {
-        'general': `Hello! I'm interested in learning more about Sinkhwal Services and your digital solutions. Could we schedule a consultation?`,
+        'general': `Hello! I'm interested in learning more about Sinkhwal Services and your digital solutions. Could we schedule a time to discuss my needs?`,
         
         'web-development': `Hi! I'm interested in your Web Development services. I'd like to discuss building a custom web application/website. Could you provide more details about your process and pricing?`,
         
         'school-management': `Hi! I'm interested in your School Management System (School360). We need a complete solution for student management and fee collection. Can we discuss our requirements?`,
         
-        'consultation': `Hello! I'd like to schedule a free consultation to discuss how Sinkhwal Services can help transform our business with digital solutions. When would be a good time to talk?`
+        'consultation': `Hello! I'd like to discuss how Sinkhwal Services can help transform our business with digital solutions. When would be a good time to talk about my project?`
     };
     
     const message = messages[serviceType] || messages['general'];
@@ -371,7 +371,7 @@ function openServiceDetails(serviceId) {
                 💬 Get Detailed Quote
             </button>
             <button class="modal-cta secondary" onclick="contactWhatsApp('consultation')">
-                📞 Schedule Consultation
+                📞 Let's Discuss This
             </button>
         </div>
     `;

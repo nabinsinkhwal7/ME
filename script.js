@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
     initScrollIndicator();
     initTestimonialCarousel();
-    initFAQAccordion();
 });
 
 // Particle System (maintained for professional tech aesthetic)
@@ -379,7 +378,7 @@ function openServiceDetails(serviceId) {
             <button class="modal-cta primary" onclick="contactWhatsApp('${serviceId}')">
                 💬 Get Detailed Quote
             </button>
-            <button class="modal-cta secondary" onclick="contactWhatsApp('consultation')">
+            <button class="modal-cta secondary" onclick="makeDirectCall()">
                 📞 Let's Discuss This
             </button>
         </div>
@@ -505,42 +504,24 @@ function currentTestimonial(index) {
     showTestimonial(currentTestimonialIndex);
 }
 
-// FAQ Accordion Functionality
-function initFAQAccordion() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const answer = this.nextElementSibling;
-            const isActive = this.classList.contains('active');
-            
-            // Close all other FAQ items
-            faqQuestions.forEach(q => {
-                q.classList.remove('active');
-                q.nextElementSibling.classList.remove('active');
-            });
-            
-            // Toggle current item
-            if (!isActive) {
-                this.classList.add('active');
-                answer.classList.add('active');
-            }
-        });
-    });
-}
+// FAQ Accordion Functionality (using onclick in HTML)
 
 function toggleFAQ(element) {
+    console.log('FAQ clicked!', element); // Debug log
+    
     const answer = element.nextElementSibling;
     const isActive = element.classList.contains('active');
     
-    // Close ALL FAQ items first (including the current one)
+    console.log('Answer element:', answer, 'Is active:', isActive); // Debug log
+    
+    // Close ALL FAQ items first (including the current one if it's active)
     document.querySelectorAll('.faq-question').forEach(q => {
         q.classList.remove('active');
         const qAnswer = q.nextElementSibling;
         if (qAnswer && qAnswer.classList.contains('faq-answer')) {
             qAnswer.classList.remove('active');
-            qAnswer.style.maxHeight = '';
-            qAnswer.style.padding = '';
+            qAnswer.style.maxHeight = '0';
+            qAnswer.style.padding = '0';
         }
     });
     
@@ -548,10 +529,11 @@ function toggleFAQ(element) {
     if (!isActive && answer && answer.classList.contains('faq-answer')) {
         element.classList.add('active');
         answer.classList.add('active');
+        // Set max-height to scrollHeight for smooth transition
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.padding = '16px 0 24px 0'; // Use explicit values instead of CSS variables
         
-        // Apply styles for smooth animation
-        answer.style.maxHeight = '600px';
-        answer.style.padding = '16px 0 24px 0';
+        console.log('FAQ opened, scrollHeight:', answer.scrollHeight); // Debug log
     }
 }
 

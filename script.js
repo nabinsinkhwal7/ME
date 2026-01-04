@@ -155,6 +155,15 @@ function contactWhatsApp(serviceType) {
     console.log(`WhatsApp contact initiated for: ${serviceType}`);
 }
 
+// Direct Call Integration (for contact section only)
+function makeDirectCall() {
+    const phoneNumber = '+9779869131707';
+    window.location.href = `tel:${phoneNumber}`;
+    
+    // Track the interaction (for analytics if needed)
+    console.log('Direct call initiated');
+}
+
 // Service Details Modal System
 function openServiceDetails(serviceId) {
     const serviceData = {
@@ -260,7 +269,7 @@ function openServiceDetails(serviceId) {
             ],
             
             liveDemo: 'https://school360.nabinsinkhwal.com.np',
-            pricing: 'Starting from NPR 1,50,000 for complete system. Customization available.',
+            pricing: 'NPR 5,000 per year for up to 50 students. Affordable pricing for schools of all sizes.',
             timeline: '4-12 weeks for full implementation including training'
         }
     };

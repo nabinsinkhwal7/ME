@@ -1751,6 +1751,25 @@ div[class*="faq"] p {
     font-weight: 600;
 }
 
+.phone-link, .email-link, .whatsapp-link {
+    text-decoration: none;
+    color: var(--color-text-primary) !important;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #22c55e !important; /* Green for call */
+}
+
+.email-link:hover {
+    color: #3b82f6 !important; /* Blue for email */
+}
+
+.whatsapp-link:hover {
+    color: #25d366 !important; /* WhatsApp green */
+}
+
 .contact-note {
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);

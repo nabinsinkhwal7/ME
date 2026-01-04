@@ -277,6 +277,41 @@ body {
     font-size: 1.2rem;
 }
 
+/* About Sinkhwal Services Section */
+.about-sinkhwal-section {
+    margin: 60px 0;
+    width: 100%;
+    max-width: 1000px;
+    z-index: 10;
+    position: relative;
+    background: var(--color-surface);
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.about-sinkhwal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.about-sinkhwal-content p {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Services Section */
 .services-section {
     margin: 80px 0;

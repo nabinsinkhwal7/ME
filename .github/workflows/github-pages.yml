@@ -114,9 +114,12 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        continue-on-error: true
+        id: pages-setup
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        if: steps.pages-setup.outcome == 'success'
         with:
           # Upload entire repository except excluded files
           path: '.'
@@ -124,6 +127,19 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        if: steps.pages-setup.outcome == 'success'
+
+      - name: Pages Not Enabled Warning
+        if: steps.pages-setup.outcome == 'failure'
+        run: |
+          echo "⚠️  GitHub Pages is not enabled for this repository!"
+          echo "📋 To enable GitHub Pages:"
+          echo "1. Go to repository Settings"
+          echo "2. Scroll to Pages section"
+          echo "3. Set Source to 'GitHub Actions'"
+          echo "4. Re-run this workflow"
+          echo ""
+          echo "🔗 Direct link: https://github.com/${{ github.repository }}/settings/pages"
 
       - name: Deployment Success Notification
         if: success()

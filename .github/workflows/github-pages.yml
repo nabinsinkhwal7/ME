@@ -2,9 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ gh-pages-deploy-personal ]
+    branches: [ gh-pages ]
   pull_request:
-    branches: [ gh-pages-deploy-personal ]
+    branches: [ gh-pages ]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -91,7 +91,7 @@ jobs:
   deploy:
     needs: test
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/gh-pages-deploy-personal'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/gh-pages'
     
     environment:
       name: github-pages
@@ -157,4 +157,4 @@ jobs:
           echo "💡 Common issues:"
           echo "   - Check if GitHub Pages is enabled in repository settings"
           echo "   - Verify the deployment source is set to 'GitHub Actions'"
-          echo "   - Ensure the branch 'gh-pages-deploy-personal' exists"
+          echo "   - Ensure the branch 'gh-pages' exists"

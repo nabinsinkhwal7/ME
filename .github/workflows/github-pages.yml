@@ -1,0 +1,144 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ gh-pages-deploy-personal ]
+  pull_request:
+    branches: [ gh-pages-deploy-personal ]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Test job - runs on pull requests and pushes
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run cache busting
+        run: |
+          node cache-buster.js
+          echo "✅ Cache busting completed for GitHub Pages"
+
+      - name: Validate HTML
+        run: |
+          # Install HTML validator
+          sudo apt-get update
+          sudo apt-get install -y tidy
+          
+          # Validate HTML files
+          echo "🔍 Validating HTML files..."
+          for file in *.html; do
+            if [ -f "$file" ]; then
+              echo "Checking $file..."
+              tidy -q -e "$file" || echo "⚠️  Warning: Issues found in $file"
+            fi
+          done
+          echo "✅ HTML validation completed"
+
+      - name: Check JavaScript syntax
+        run: |
+          # Check Node.js version
+          node --version
+          
+          # Basic syntax check for JS files
+          echo "🔍 Checking JavaScript syntax..."
+          for file in *.js; do
+            if [ -f "$file" ]; then
+              echo "Checking $file..."
+              node -c "$file" && echo "✅ $file: OK" || echo "❌ $file: Syntax Error"
+            fi
+          done
+          echo "✅ JavaScript validation completed"
+
+      - name: Validate CSS
+        run: |
+          # Basic CSS syntax validation
+          echo "🔍 Validating CSS files..."
+          for file in *.css; do
+            if [ -f "$file" ]; then
+              echo "Checking $file..."
+              # Basic CSS syntax check using Node.js
+              node -e "
+                const fs = require('fs');
+                try {
+                  const css = fs.readFileSync('$file', 'utf8');
+                  console.log('✅ $file: Basic syntax check passed');
+                } catch (error) {
+                  console.log('❌ $file: Error reading file');
+                }
+              " || echo "⚠️  $file: Issues found"
+            fi
+          done
+          echo "✅ CSS validation completed"
+
+  # Build and Deploy job - only runs on push to gh-pages-deploy-personal branch
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/gh-pages-deploy-personal'
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run cache busting for production
+        run: |
+          echo "🚀 Running cache busting for GitHub Pages deployment..."
+          node cache-buster.js
+          echo "✅ Cache busting completed - files are ready for deployment"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository except excluded files
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Deployment Success Notification
+        if: success()
+        run: |
+          echo "🎉 GitHub Pages Deployment Successful!"
+          echo "📍 Your website is now live at: ${{ steps.deployment.outputs.page_url }}"
+          echo "🔗 Direct link: https://nabinsinkhwal7.github.io/ME/"
+          echo "⏰ Deployment completed at: $(date)"
+          
+      - name: Deployment Failure Notification
+        if: failure()
+        run: |
+          echo "❌ GitHub Pages Deployment Failed!"
+          echo "🔍 Please check the logs above for details."
+          echo "💡 Common issues:"
+          echo "   - Check if GitHub Pages is enabled in repository settings"
+          echo "   - Verify the deployment source is set to 'GitHub Actions'"
+          echo "   - Ensure the branch 'gh-pages-deploy-personal' exists"

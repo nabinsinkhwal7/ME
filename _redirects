@@ -13,14 +13,17 @@ http://nabinsinkhwal.com.np/* https://nabinsinkhwal.com.np/:splat 301!
 /personal/* / 301
 /games/* / 301
 
-# Business-specific redirects
-/services /index.html#services-section 200
-/contact /index.html#contact-section 200
-/about /index.html#about-section 200
+# Preview route for full website (temporary access)
+/preview /preview.html 200
+
+# Business-specific redirects (redirect to preview during coming soon)
+/services /preview.html#services-section 200
+/contact /preview.html#contact-section 200
+/about /preview.html#about-section 200
 
 # School360 redirect
 /school360 https://school360.nabinsinkhwal.com.np/ 301
 /School360 https://school360.nabinsinkhwal.com.np/ 301
 
-# Handle missing files gracefully
+# Handle missing files gracefully - show coming soon page
 /* /index.html 200

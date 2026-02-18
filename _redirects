@@ -1,17 +1,15 @@
 # Cloudflare Pages Redirects for Sinkhwal Services
 
-# Redirect common variations to main domain
-http://sinkhwalservices.com/* https://nabinsinkhwal.com.np/:splat 301!
-https://sinkhwalservices.com/* https://nabinsinkhwal.com.np/:splat 301!
-http://www.sinkhwalservices.com/* https://nabinsinkhwal.com.np/:splat 301!
-https://www.sinkhwalservices.com/* https://nabinsinkhwal.com.np/:splat 301!
+# Force HTTPS for main domain
+http://sinkhwalservices.com.np/* https://sinkhwalservices.com.np/:splat 301!
 
-# Force HTTPS
-http://nabinsinkhwal.com.np/* https://nabinsinkhwal.com.np/:splat 301!
+# Redirect www to non-www
+https://www.sinkhwalservices.com.np/* https://sinkhwalservices.com.np/:splat 301!
+http://www.sinkhwalservices.com.np/* https://sinkhwalservices.com.np/:splat 301!
 
-# Handle old personal portfolio routes (if any)
-/personal/* / 301
-/games/* / 301
+# Specific routes (must come before wildcards)
+/school360 https://school360.nabinsinkhwal.com.np/ 301
+/School360 https://school360.nabinsinkhwal.com.np/ 301
 
 # Preview route for full website (temporary access)
 /preview /preview.html 200
@@ -21,9 +19,9 @@ http://nabinsinkhwal.com.np/* https://nabinsinkhwal.com.np/:splat 301!
 /contact /preview.html#contact-section 200
 /about /preview.html#about-section 200
 
-# School360 redirect
-/school360 https://school360.nabinsinkhwal.com.np/ 301
-/School360 https://school360.nabinsinkhwal.com.np/ 301
+# Handle old routes
+/personal/* / 301
+/games/* / 301
 
-# Handle missing files gracefully - show coming soon page
+# Default fallback - show coming soon page (must be last)
 /* /index.html 200

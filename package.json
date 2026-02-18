@@ -4,15 +4,8 @@
   "description": "Sinkhwal Services - Professional business website with smart digital solutions, optimized for Cloudflare Pages deployment",
   "main": "index.html",
   "scripts": {
-    "bust-cache": "node cache-buster.js",
-    "deploy": "node deploy.js",
-    "cloudflare-deploy": "echo 'Static site ready for deployment'",
-    "dev": "python -m http.server 8000 || php -S localhost:8000 || npx serve .",
-    "test": "node cache-buster.js && echo 'Cache busting test completed'",
-    "clean": "rm -rf .cache-backups || rmdir /s .cache-backups",
-    "backup": "node -e \"require('./cache-buster.js'); console.log('Manual backup created');\"",
-    "validate": "node -e \"require('./cloudflare-deploy.js').validateFiles()\"",
-    "build": "node cache-buster.js"
+    "cloudflare-deploy": "echo 'Static site ready for Cloudflare Pages deployment'",
+    "validate": "node -e \"require('./cloudflare-deploy.js').validateFiles()\""
   },
   "keywords": [
     "business-website",

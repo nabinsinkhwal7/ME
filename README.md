@@ -1,85 +1,153 @@
-# Nabin Sinkhwal - Personal Website
+# Sinkhwal Services - Organization Website
 
-A modern, interactive personal website showcasing games, services, and professional information.
+Official website for Sinkhwal Services, a professional business organization providing digital solutions, web development, and business automation services.
+
+**Branch**: `Organization` - Production branch for company website
+**Hosting**: Cloudflare Pages with global CDN
+**URL**: [https://nabinsinkhwal.com.np](https://nabinsinkhwal.com.np)
+
+---
+
+## 🏢 About This Branch
+
+This is the **Organization** branch dedicated to the **company/business website** for Sinkhwal Services. It contains:
+- Professional company branding and services showcase
+- Business information and service offerings
+- Professional design optimized for business presentation
+- Global CDN deployment via Cloudflare Pages
+
+> **Note**: There is a separate personal branch for individual portfolio content.
 
 ## 🌟 Features
 
-- **Interactive Games**: Tic-Tac-Toe and Memory Game
-- **Services Showcase**: Professional services including School360 billing system
-- **Responsive Design**: Works perfectly on desktop and mobile
+- **Services Showcase**: School360 billing system and digital solutions
+- **Professional Design**: Clean, modern UI suitable for business
+- **Responsive Layout**: Optimized for desktop, tablet, and mobile
+- **Interactive Elements**: Engaging games and features
 - **Particle Animation**: Beautiful background effects
-- **Modern UI**: Clean, professional design with smooth animations
+- **Global Performance**: Deployed on Cloudflare CDN
 
-## 🚀 Live Website
+## 📦 Deployment Platform
 
-Visit: [https://nabinsinkhwal.com.np](https://nabinsinkhwal.com.np)
+**Hosting**: Cloudflare Pages
+- Global CDN with 200+ edge locations
+- Automatic HTTPS and SSL certificates
+- Instant deployments from GitHub
+- Free tier with generous limits
+- Advanced caching and performance optimization
 
 ## 🛠️ Technologies Used
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
 - **Styling**: CSS Grid, Flexbox, CSS Animations
-- **Deployment**: GitHub Actions + cPanel FTP
-- **Hosting**: cPanel
+- **Deployment**: Cloudflare Pages (Git integration)
+- **Hosting**: Cloudflare Pages
+- **Caching**: Cloudflare advanced caching via `_headers`
+- **Routing**: Cloudflare redirects via `_redirects`
 
-## 🎮 Games Included
+## 📋 Repository Structure
+
+```
+/
+├── index.html              # Main company landing page
+├── styles.css             # Global styling
+├── script.js              # Interactive features
+├── _headers               # Caching configuration
+├── _redirects             # URL routing rules
+├── robots.txt             # SEO optimization
+├── sitemap.xml            # Search engine sitemap
+├── favicon.png            # Company icon
+├── cloudflare-deploy.js   # Deployment validation
+└── CLOUDFLARE-DEPLOYMENT.md # Deployment guide
+```
+
+## 🎮 Interactive Features
 
 ### Tic-Tac-Toe
-- Play with a friend (local multiplayer)
-- Play against AI with smart difficulty
-- Responsive grid layout
+- Local multiplayer gameplay
+- AI opponent with difficulty levels
+- Responsive interface
 
 ### Memory Game
-- Multiple difficulty levels (Easy, Medium, Hard)
+- Multiple difficulty levels
 - Score tracking and timer
-- Smooth card flip animations
+- Smooth animations
 
-## 💼 Services
+## 💼 Services Offered
 
 ### School360
-Complete billing and management system for educational institutions featuring:
-- 📊 Student Management
-- 💰 Fee Collection
+Complete educational institution management system:
+- 📊 Student Information Management
+- 💰 Fee Collection & Billing
 - 📈 Reports & Analytics
-- 👥 Multi-user Access
+- 👥 Multi-user Access Control
+- 🔐 Secure Data Management
 
-**Live at**: [school360.nabinsinkhwal.com.np](https://school360.nabinsinkhwal.com.np)
+### Digital Solutions
+- Custom web development
+- Business automation
+- School management systems
+- Professional web presence
 
-## 🚀 Deployment
+## 🚀 Deployment Instructions
 
-This project uses GitHub Actions for automated deployment to cPanel hosting.
+### Connect to Cloudflare Pages
 
-### Setup Instructions
-See [DEPLOYMENT_SETUP.md](DEPLOYMENT_SETUP.md) for detailed setup instructions.
+1. Go to [dash.cloudflare.com](https://dash.cloudflare.com)
+2. Navigate to **Pages** → **Create a project**
+3. Select **Connect to Git** → **GitHub**
+4. Authorize Cloudflare and select the `ME` repository
+5. Choose the `Organization` branch
+6. Set build settings:
+   - **Framework preset**: None (Static HTML)
+   - **Build command**: (leave empty)
+   - **Build output directory**: `/`
+7. Click **Save and Deploy**
 
-### Automatic Deployment
-- Push to `main` branch triggers deployment
-- Includes automated testing (HTML, CSS, JS validation)
-- Direct FTP upload to cPanel hosting
+### Automatic Deployments
+
+- Push to `Organization` branch = automatic production deployment
+- Preview deployments for pull requests
+- Instant rollback capability available
 
 ## 📱 Responsive Design
 
-- **Desktop**: Full-featured experience with hover effects
-- **Tablet**: Optimized layout and touch interactions
-- **Mobile**: Streamlined interface with mobile-first approach
+- **Desktop**: Full-featured business experience with advanced features
+- **Tablet**: Optimized layout for tablet viewing
+- **Mobile**: Mobile-first approach with streamlined interface
 
 ## 🎨 Design Features
 
-- **Dark Theme**: Modern black background with cyan accents
-- **Particle System**: Animated background particles
+- **Professional Theme**: Business-appropriate color scheme
+- **Modern UI**: Contemporary design patterns
 - **Smooth Animations**: CSS transitions and keyframe animations
-- **Glass Morphism**: Backdrop blur effects on cards and modals
-- **Gradient Text**: Eye-catching title and section headers
+- **Performance Optimized**: Fast loading on all devices
+- **Accessibility**: WCAG compliant design
+
+## 🔧 Configuration Files
+
+### `_headers`
+Cloudflare caching rules optimized for business website:
+- Static assets cached for long periods
+- Security headers configuration
+- Performance optimization
+
+### `_redirects`
+URL routing and redirect rules:
+- Path-based routing
+- Legacy URL support
+- Service redirects
 
 ## 📞 Contact Information
 
 - **Email**: [nsinkhwal@gmail.com](mailto:nsinkhwal@gmail.com)
 - **WhatsApp**: [+977 9869131707](https://wa.me/9779869131707)
-- **LinkedIn**: [nabin-sinkhwal-575262355](https://www.linkedin.com/in/nabin-sinkhwal-575262355/)
+- **LinkedIn**: [Nabin Sinkhwal](https://www.linkedin.com/in/nabin-sinkhwal-575262355/)
 - **GitHub**: [Nabinsinkhwal](https://github.com/Nabinsinkhwal)
 
 ---
 
-**Built with ❤️ by Nabin Sinkhwal**
+**Organization Branch** | Deployed on Cloudflare Pages | Professional Digital Solutions
 
 
 

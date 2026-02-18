@@ -27,8 +27,13 @@
     <meta property="twitter:description" content="Sinkhwal Services provides expert web development, business automation, and school management systems in Nepal. Choose Sinkhwal services for reliable digital solutions and professional web development.">
     <meta property="twitter:image" content="https://sinkhwalservices.com.np/sinkhwal-services-og.jpg">
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ffffff%22/><text x=%2250%22 y=%2265%22 font-size=%2260%22 fill=%22%232563eb%22 text-anchor=%22middle%22 font-weight=%22bold%22>SS</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ffffff%22/><text x=%2250%22 y=%2265%22 font-size=%2260%22 fill=%22%230f172a%22 text-anchor=%22middle%22 font-weight=%22bold%22>SS</text></svg>">
     <title>Sinkhwal Services - Professional Digital Solutions & Web Development Company in Nepal</title>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Cache-busted CSS -->
     <link rel="stylesheet" href="styles.css?v=1767542974011">
@@ -116,6 +121,27 @@
     </script>
 </head>
 <body>
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#hero">Sinkhwal Services</a>
+            </div>
+            <div class="nav-menu">
+                <a href="#services-section" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-cta">
+                <button class="nav-cta-btn" onclick="contactWhatsApp('general')">
+                    <span class="cta-icon">💬</span>
+                    Get Quote
+                </button>
+            </div>
+        </div>
+    </nav>
+
     <div class="glow-line"></div>
     <canvas class="particles"></canvas>
 
@@ -232,11 +258,11 @@
     </div>
 
     <!-- About Sinkhwal Services Section -->
-    <div class="about-sinkhwal-section">
+    <div id="about" class="about-sinkhwal-section">
         <div class="about-sinkhwal-content">
             <h2>About Sinkhwal Services</h2>
-            <p>Sinkhwal Services is a leading digital solutions provider in Nepal, specializing in professional web development, business automation, and school management systems. Our Sinkhwal services team is dedicated to transforming businesses through smart technology solutions.</p>
-            <p>When you choose Sinkhwal Services, you're partnering with experienced professionals who understand the unique challenges of Nepali businesses. Our Sinkhwal services portfolio includes successful projects like School360, helping organizations streamline their operations and achieve digital transformation.</p>
+            <p>Sinkhwal Services is a premier digital solutions provider in Nepal, specializing in professional web development, business automation, and school management systems. Our team is dedicated to transforming businesses through smart technology solutions that drive growth and efficiency.</p>
+            <p>When you choose Sinkhwal Services, you're partnering with experienced professionals who understand the unique challenges of Nepali businesses. Our portfolio includes successful projects like School360, helping organizations streamline their operations and achieve digital transformation with reliable, scalable solutions.</p>
         </div>
     </div>
 
@@ -296,7 +322,7 @@
     </div>
 
     <!-- How We Work Section -->
-    <div class="process-section">
+    <div id="process" class="process-section">
         <div class="process-content">
             <h2 class="process-title">How we work together</h2>
             <p class="process-subtitle">A simple, transparent process that gets you from problem to solution</p>
@@ -572,6 +598,75 @@
         </div>
     </div>
 
+    <!-- Contact Section -->
+    <div id="contact" class="contact-section">
+        <div class="contact-content">
+            <h2 class="contact-title">Ready to Transform Your Business?</h2>
+            <p class="contact-subtitle">Let's discuss how Sinkhwal Services can help you achieve digital transformation with our proven solutions.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon-large">💬</div>
+                    <h3>WhatsApp Business</h3>
+                    <p>Get instant responses and discuss your project requirements directly.</p>
+                    <a href="https://wa.me/9779869131707" class="contact-link" target="_blank">
+                        +977 9869131707
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon-large">📧</div>
+                    <h3>Email</h3>
+                    <p>Send us detailed requirements and we'll get back to you within 24 hours.</p>
+                    <a href="mailto:nsinkhwal@gmail.com" class="contact-link">
+                        nsinkhwal@gmail.com
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon-large">📞</div>
+                    <h3>Phone</h3>
+                    <p>Call us directly for immediate consultation and project discussions.</p>
+                    <a href="tel:+9779869131707" class="contact-link">
+                        +977 9869131707
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Sinkhwal Services</h3>
+                <p>Sinkhwal Services is Nepal's premier digital solutions provider, specializing in web development, business automation, and school management systems. We transform businesses through innovative technology solutions.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#process">Our Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><span class="contact-icon">📧</span> nsinkhwal@gmail.com</li>
+                    <li><span class="contact-icon">📱</span> +977 9869131707</li>
+                    <li><span class="contact-icon">📍</span> Nepal</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sinkhwal Services. All rights reserved.</p>
+        </div>
+    </footer>
     
     <!-- Service Details Modal -->
     <div id="serviceModal" class="service-modal">

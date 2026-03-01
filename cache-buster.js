@@ -39,7 +39,7 @@ function generateFileHash(filePath) {
 function updateCacheVersions() {
     log('🎯 Starting cache version update...', 'cyan');
     
-    const htmlFiles = ['index.html'];
+    const htmlFiles = ['index.html', 'preview.html'];
     const staticFiles = [
         { file: 'styles.css', pattern: /styles\.css\?v=[^"']*/g },
         { file: 'script.js', pattern: /script\.js\?v=[^"']*/g }

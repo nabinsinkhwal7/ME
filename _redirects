@@ -7,17 +7,12 @@ http://sinkhwalservices.com.np/* https://sinkhwalservices.com.np/:splat 301!
 https://www.sinkhwalservices.com.np/* https://sinkhwalservices.com.np/:splat 301!
 http://www.sinkhwalservices.com.np/* https://sinkhwalservices.com.np/:splat 301!
 
-# Specific routes (must come before wildcards)
+# External redirects
 /school360 https://school360.nabinsinkhwal.com.np/ 301
 /School360 https://school360.nabinsinkhwal.com.np/ 301
 
-# Preview route for full website (temporary access)
+# Preview route for full website (internal access only)
 /preview /preview.html 200
-
-# Business-specific redirects (redirect to preview during coming soon)
-/services /preview.html#services-section 200
-/contact /preview.html#contact-section 200
-/about /preview.html#about-section 200
 
 # Handle old routes
 /personal/* / 301

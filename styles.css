@@ -135,6 +135,219 @@ body {
     z-index: -1;
 }
 
+/* Main CTA Section */
+.main-cta-section {
+    margin: 60px 0 80px 0;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 900px;
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(0, 200, 220, 0.05));
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    position: relative;
+}
+
+.main-cta-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0, 188, 212, 0.5), transparent);
+}
+
+.cta-headline {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #00bcd4, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.cta-description {
+    font-size: 1.1rem;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-primary {
+    background: linear-gradient(135deg, #00bcd4, #00d4e0);
+    color: #000;
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 188, 212, 0.4);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: #00bcd4;
+    border: 2px solid rgba(0, 188, 212, 0.5);
+}
+
+.cta-secondary:hover {
+    background: rgba(0, 188, 212, 0.1);
+    border-color: rgba(0, 188, 212, 0.8);
+    transform: translateY(-3px);
+}
+
+.cta-icon {
+    font-size: 1.2rem;
+}
+
+/* Services Section */
+.services-section {
+    margin: 80px 0;
+    padding: 60px 40px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 188, 212, 0.03), transparent);
+    position: relative;
+    z-index: 10;
+}
+
+.services-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.services-title {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    background: linear-gradient(45deg, #00bcd4, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-weight: 600;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.08), rgba(0, 200, 220, 0.04));
+    border: 1px solid rgba(0, 188, 212, 0.15);
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 188, 212, 0.4);
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.12), rgba(0, 200, 220, 0.08));
+    box-shadow: 0 15px 40px rgba(0, 188, 212, 0.15);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+}
+
+/* Footer CTA Section */
+.footer-cta-section {
+    margin: 80px 0 40px 0;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 900px;
+    background: linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(0, 200, 220, 0.08));
+    border: 1px solid rgba(0, 188, 212, 0.25);
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    position: relative;
+}
+
+.footer-cta-title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #ffffff, #00bcd4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.footer-cta-text {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.footer-cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: rgba(0, 188, 212, 0.2);
+    border: 1px solid rgba(0, 188, 212, 0.4);
+    border-radius: 50px;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.footer-cta-btn:hover {
+    background: rgba(0, 188, 212, 0.3);
+    border-color: rgba(0, 188, 212, 0.6);
+    transform: translateY(-2px);
+}
 /* Games Section Styles */
 .games-section {
     margin: 40px 0 60px 0;
@@ -865,6 +1078,89 @@ body {
         max-width: 180px;
     }
     
+        /* Main CTA Mobile */
+        .main-cta-section {
+            margin: 40px 0 60px 0;
+            padding: 35px 20px;
+            border-radius: 15px;
+        }
+    
+        .cta-headline {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+    
+        .cta-description {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+    
+        .cta-buttons {
+            gap: 10px;
+        }
+    
+        .cta-btn {
+            padding: 12px 24px;
+            font-size: 0.9rem;
+        }
+    
+        /* Services Mobile */
+        .services-section {
+            margin: 60px 0;
+            padding: 40px 20px;
+        }
+    
+        .services-title {
+            font-size: 2rem;
+            margin-bottom: 35px;
+        }
+    
+        .services-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    
+        .service-card {
+            padding: 20px;
+        }
+    
+        .service-icon {
+            font-size: 2.5rem;
+        }
+    
+        .service-card h3 {
+            font-size: 1.2rem;
+        }
+    
+        .service-card p {
+            font-size: 0.9rem;
+        }
+    
+        /* Footer CTA Mobile */
+        .footer-cta-section {
+            margin: 60px 0 30px 0;
+            padding: 35px 20px;
+            border-radius: 15px;
+        }
+    
+        .footer-cta-title {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+    
+        .footer-cta-text {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+    
+        .footer-cta-buttons {
+            gap: 8px;
+        }
+    
+        .footer-cta-btn {
+            padding: 10px 18px;
+            font-size: 0.85rem;
+        }
     .arrow-label {
         font-size: 0.9rem;
     }

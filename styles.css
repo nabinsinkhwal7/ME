@@ -14,6 +14,68 @@ body {
     padding: 20px;
 }
 
+/* Skip link and nav */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 10px;
+    background: #fff;
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 6px;
+    z-index: 9999;
+}
+.skip-link:focus {
+    left: 20px;
+}
+
+.site-nav {
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    z-index: 999;
+}
+.site-nav nav {
+    display: flex;
+    gap: 12px;
+    background: rgba(0,0,0,0.25);
+    padding: 8px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+}
+.site-nav a {
+    color: #e6f9fb;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+.site-nav a:hover { text-decoration: underline; }
+
+/* Focus and accessibility helpers */
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
+
+/* Clear visible focus for keyboard users */
+:focus {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 3px solid rgba(0, 188, 212, 0.9);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.cta-btn:focus-visible, .project-card:focus-visible, .service-card:focus-visible, .site-nav a:focus-visible {
+    outline: 3px solid rgba(0, 188, 212, 0.95);
+    outline-offset: 3px;
+}
+
+/* Make interactive blocks keyboard-focusable */
+.project-card, .service-card {
+    cursor: pointer;
+}
+.project-card[tabindex], .service-card[tabindex] { outline: none; }
+
 .glow-line {
     width: 100%;
     height: 1px;

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00bcd4"/>
+      <stop offset="1" stop-color="#006b6b"/>
+    </linearGradient>
+    <style>
+      .bg { fill: url(#g); }
+      .title { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:56px; fill: #fff; font-weight:700 }
+      .subtitle { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:28px; fill: rgba(255,255,255,0.9); }
+      .mono { font-family: monospace; font-size:20px; fill: rgba(255,255,255,0.9); }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="630" rx="24"/>
+  <g transform="translate(80,160)">
+    <text class="title">Nabin Sinkhwal</text>
+    <text class="subtitle" y="64">Developer · Problem Solver · Builder</text>
+    <text class="mono" y="120">nabinsinkhwal.com.np</text>
+  </g>
+</svg>

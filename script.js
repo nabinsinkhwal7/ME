@@ -83,6 +83,15 @@ function openGame(gameType) {
     const container = document.getElementById('gameContainer');
     
     modal.style.display = 'block';
+    // Accessibility: mark dialog visible and focus container
+    modal.setAttribute('aria-hidden', 'false');
+    modal.setAttribute('aria-modal', 'true');
+    try {
+        const focusable = container.querySelector('button, [href], input, select, textarea, [tabindex]');
+        if (focusable) focusable.focus();
+    } catch (e) {
+        // ignore
+    }
     
     switch(gameType) {
         case 'tictactoe':
@@ -97,7 +106,14 @@ function openGame(gameType) {
 }
 
 function closeGame() {
-    document.getElementById('gameModal').style.display = 'none';
+    const modal = document.getElementById('gameModal');
+    if (modal) {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+    }
+    // Return focus to primary CTA if available
+    const primaryCTA = document.querySelector('.cta-primary');
+    if (primaryCTA) primaryCTA.focus();
 }
 
 // Close modal when clicking outside
@@ -218,10 +234,35 @@ function openProjectDetails(projectId) {
     modal.style.display = 'block';
 }
 
+// Keyboard activation for focusable cards (projects / services)
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const active = document.activeElement;
+    if (!active) return;
+    if (active.classList && active.classList.contains('project-card')) {
+        e.preventDefault();
+        // attempt to read onclick handler or call openProjectDetails via dataset
+        const onclick = active.getAttribute('onclick');
+        if (onclick && onclick.includes('openProjectDetails')) {
+            const match = onclick.match(/openProjectDetails\(['"](.*)['"]\)/);
+            if (match && match[1]) openProjectDetails(match[1]);
+        }
+    }
+    if (active.classList && active.classList.contains('service-card')) {
+        // optional: announce or focus; for now, just trigger hover effect
+        e.preventDefault();
+        active.click && active.click();
+    }
+});
+
 function closeProjectModal() {
     const modal = document.getElementById('projectModal');
     if (modal) {
         modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        // focus back to projects section
+        const projectsSection = document.getElementById('projects-section');
+        if (projectsSection) projectsSection.focus();
     }
 }
 

@@ -36,9 +36,22 @@
     </script>
 
     <!-- Analytics: add your GA/Plausible snippet when ready -->
+    <!-- Set theme early to avoid flash -->
+    <script>
+        (function() {
+            var stored = localStorage.getItem('theme');
+            document.documentElement.setAttribute('data-theme', stored || 'light');
+        })();
+    </script>
 </head>
 <body>
     <a class="skip-link" href="#projects-section" aria-label="Skip to content">Skip to content</a>
+    <div class="theme-toggle-wrap" aria-label="Theme">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle light/dark theme">
+            <span class="theme-icon theme-icon-sun" aria-hidden="true">☀️</span>
+            <span class="theme-icon theme-icon-moon" aria-hidden="true">🌙</span>
+        </button>
+    </div>
     <header class="site-nav" role="navigation" aria-label="Main Navigation">
         <nav>
             <a href="#projects-section">Projects</a>

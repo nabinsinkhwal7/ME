@@ -1,5 +1,30 @@
-// Wait for DOM to load before initializing particles
+// Theme toggle: default is light (bright)
+function getTheme() {
+    return document.documentElement.getAttribute('data-theme') || 'light';
+}
+
+function setTheme(theme) {
+    theme = theme === 'dark' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+}
+
+function toggleTheme() {
+    setTheme(getTheme() === 'light' ? 'dark' : 'light');
+}
+
+// Wait for DOM to load before initializing particles and theme button
 document.addEventListener('DOMContentLoaded', function() {
+    // Theme toggle button
+    var themeBtn = document.getElementById('themeToggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', function() {
+            toggleTheme();
+            themeBtn.setAttribute('aria-label', getTheme() === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+        });
+        themeBtn.setAttribute('aria-label', getTheme() === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+    }
+
     const canvas = document.querySelector('.particles');
     if (!canvas) {
         console.error('Canvas element not found!');
@@ -18,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1; // Make particles slightly bigger
+            this.size = Math.random() * 2 + 1;
             this.speedX = Math.random() * 1 - 0.5;
             this.speedY = Math.random() * 1 - 0.5;
             this.opacity = 0;
@@ -35,16 +60,14 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         draw() {
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 0.8})`; // Make more visible
+            var theme = getTheme();
+            var color = theme === 'dark'
+                ? 'rgba(45, 212, 191, ' + (this.opacity * 0.25) + ')'  // teal for dark bg
+                : 'rgba(13, 148, 136, ' + (this.opacity * 0.15) + ')';  // teal for light bg
+            ctx.fillStyle = color;
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
-            
-            // Add a subtle glow effect
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = 'rgba(255, 255, 255, 0.3)';
-            ctx.fill();
-            ctx.shadowBlur = 0; // Reset shadow
         }
     }
 
@@ -218,7 +241,7 @@ function openProjectDetails(projectId) {
         </div>
         
         <div style="margin: 25px 0;">
-            <h3 style="color: #00bcd4; margin-bottom: 15px;">Technologies Used:</h3>
+            <h3 style="color: #0D9488; margin-bottom: 15px;">Technologies Used:</h3>
             <div class="project-tech-display">
                 ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
             </div>
@@ -269,25 +292,25 @@ function closeProjectModal() {
 // Tic-Tac-Toe Game
 function createTicTacToe() {
     return `
-        <div style="text-align: center; color: white;">
-            <h2 style="color: #00bcd4; margin-bottom: 20px;">🎮 Tic-Tac-Toe</h2>
+        <div style="text-align: center; color: #1C1917;">
+            <h2 style="color: #0D9488; margin-bottom: 20px;">🎮 Tic-Tac-Toe</h2>
             
             <!-- Game Mode Selection -->
             <div id="gameModeSelection" style="margin-bottom: 30px;">
-                <p style="margin-bottom: 20px; font-size: 18px;">Choose your game mode:</p>
-                <button onclick="startTicTacToe('friend')" style="padding: 12px 24px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 10px;">👥 Play with Friend</button>
-                <button onclick="startTicTacToe('computer')" style="padding: 12px 24px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 10px;">🎯 Play against Me</button>
+                <p style="margin-bottom: 20px; font-size: 18px; color: #57534E;">Choose your game mode:</p>
+                <button onclick="startTicTacToe('friend')" style="padding: 12px 24px; background: #0D9488; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 10px;">👥 Play with Friend</button>
+                <button onclick="startTicTacToe('computer')" style="padding: 12px 24px; background: #0D9488; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 10px;">🎯 Play against Me</button>
             </div>
             
             <!-- Game Board (initially hidden) -->
             <div id="ticTacToeGame" style="display: none;">
-                <div id="gameMode" style="margin-bottom: 15px; font-size: 16px; color: #888;"></div>
+                <div id="gameMode" style="margin-bottom: 15px; font-size: 16px; color: #78716C;"></div>
                 <div id="ticTacToeBoard" style="display: grid; grid-template-columns: repeat(3, 80px); gap: 5px; justify-content: center; margin: 20px 0;">
-                    ${Array(9).fill().map((_, i) => `<button class="tic-cell" onclick="makeMove(${i})" style="width: 80px; height: 80px; font-size: 24px; background: rgba(255,255,255,0.1); border: 2px solid #00bcd4; color: white; cursor: pointer; border-radius: 10px; transition: all 0.3s;">${''}</button>`).join('')}
+                    ${Array(9).fill().map((_, i) => `<button class="tic-cell" onclick="makeMove(${i})" style="width: 80px; height: 80px; font-size: 24px; background: #FAFAF9; border: 2px solid #0D9488; color: #1C1917; cursor: pointer; border-radius: 10px; transition: all 0.3s;">${''}</button>`).join('')}
                 </div>
-                <div id="ticStatus" style="font-size: 18px; margin: 20px 0; color: #00bcd4;">Your turn! Click a cell to play.</div>
-                <button onclick="resetTicTacToe()" style="padding: 10px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">New Game</button>
-                <button onclick="backToModeSelection()" style="padding: 10px 20px; background: #666; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">Change Mode</button>
+                <div id="ticStatus" style="font-size: 18px; margin: 20px 0; color: #0D9488;">Your turn! Click a cell to play.</div>
+                <button onclick="resetTicTacToe()" style="padding: 10px 20px; background: #0D9488; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">New Game</button>
+                <button onclick="backToModeSelection()" style="padding: 10px 20px; background: #57534E; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">Change Mode</button>
             </div>
         </div>
     `;
@@ -326,7 +349,7 @@ function startTicTacToe(mode) {
     // Reset board display
     document.querySelectorAll('.tic-cell').forEach(cell => {
         cell.textContent = '';
-        cell.style.background = 'rgba(255,255,255,0.1)';
+        cell.style.background = '#FAFAF9';
     });
 }
 
@@ -343,7 +366,7 @@ function makeMove(index) {
     
     ticBoard[index] = currentPlayer;
     document.getElementsByClassName('tic-cell')[index].textContent = currentPlayer;
-    document.getElementsByClassName('tic-cell')[index].style.background = 'rgba(0, 188, 212, 0.3)';
+    document.getElementsByClassName('tic-cell')[index].style.background = 'rgba(13, 148, 136, 0.2)';
     
     if (checkWinner()) {
         const winnerText = gameMode === 'friend' ? `Player ${currentPlayer} wins! 🎉` : 
@@ -383,7 +406,7 @@ function makeComputerMove() {
     if (bestMove !== -1) {
         ticBoard[bestMove] = 'O';
         document.getElementsByClassName('tic-cell')[bestMove].textContent = 'O';
-        document.getElementsByClassName('tic-cell')[bestMove].style.background = 'rgba(255, 100, 100, 0.3)';
+        document.getElementsByClassName('tic-cell')[bestMove].style.background = 'rgba(239, 68, 68, 0.2)';
         
         if (checkWinner()) {
             document.getElementById('ticStatus').textContent = 'I win! 😊';
@@ -473,7 +496,7 @@ function resetTicTacToe() {
     
     document.querySelectorAll('.tic-cell').forEach(cell => {
         cell.textContent = '';
-        cell.style.background = 'rgba(255,255,255,0.1)';
+        cell.style.background = '#FAFAF9';
     });
     
     const statusText = gameMode === 'friend' ? 'Player X\'s turn' : 'Your turn (X)';
@@ -483,20 +506,20 @@ function resetTicTacToe() {
 // Memory Game
 function createMemoryGame() {
     return `
-        <div style="text-align: center; color: white;">
-            <h2 style="color: #00bcd4; margin-bottom: 20px;">🧠 Memory Game</h2>
+        <div style="text-align: center; color: #1C1917;">
+            <h2 style="color: #0D9488; margin-bottom: 20px;">🧠 Memory Game</h2>
             
             <!-- Difficulty Selection -->
             <div id="memoryDifficultySelection" style="margin-bottom: 30px;">
-                <p style="margin-bottom: 20px; font-size: 18px;">Choose difficulty level:</p>
-                <button onclick="startMemoryGame('easy')" style="padding: 12px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🟢 Easy (3x2)</button>
-                <button onclick="startMemoryGame('medium')" style="padding: 12px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🟡 Medium (4x3)</button>
-                <button onclick="startMemoryGame('hard')" style="padding: 12px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🔴 Hard (4x4)</button>
+                <p style="margin-bottom: 20px; font-size: 18px; color: #57534E;">Choose difficulty level:</p>
+                <button onclick="startMemoryGame('easy')" style="padding: 12px 20px; background: #0D9488; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🟢 Easy (3x2)</button>
+                <button onclick="startMemoryGame('medium')" style="padding: 12px 20px; background: #0D9488; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🟡 Medium (4x3)</button>
+                <button onclick="startMemoryGame('hard')" style="padding: 12px 20px; background: #0D9488; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 8px;">🔴 Hard (4x4)</button>
             </div>
             
             <!-- Game Board (initially hidden) -->
             <div id="memoryGameBoard" style="display: none;">
-                <div id="memoryDifficultyDisplay" style="margin-bottom: 15px; font-size: 16px; color: #888;"></div>
+                <div id="memoryDifficultyDisplay" style="margin-bottom: 15px; font-size: 16px; color: #78716C;"></div>
                 <div style="margin-bottom: 20px;">
                     <span style="margin-right: 20px;">Score: <span id="memoryScore">0</span></span>
                     <span style="margin-right: 20px;">Moves: <span id="memoryMoves">0</span></span>
@@ -505,9 +528,9 @@ function createMemoryGame() {
                 <div id="memoryBoard" style="display: grid; gap: 8px; justify-content: center; margin: 20px 0;">
                     <!-- Cards will be generated here -->
                 </div>
-                <div id="memoryStatus" style="font-size: 16px; margin: 20px 0; color: #00bcd4;">Find all matching pairs!</div>
-                <button onclick="resetMemoryGame()" style="padding: 10px 20px; background: #00bcd4; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">New Game</button>
-                <button onclick="backToMemoryDifficultySelection()" style="padding: 10px 20px; background: #666; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">Change Difficulty</button>
+                <div id="memoryStatus" style="font-size: 16px; margin: 20px 0; color: #0D9488;">Find all matching pairs!</div>
+                <button onclick="resetMemoryGame()" style="padding: 10px 20px; background: #0D9488; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">New Game</button>
+                <button onclick="backToMemoryDifficultySelection()" style="padding: 10px 20px; background: #57534E; color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 16px; margin: 5px;">Change Difficulty</button>
             </div>
         </div>
     `;
@@ -596,8 +619,8 @@ function createMemoryBoard(settings) {
             height: ${settings.cardSize}; 
             font-size: ${parseInt(settings.cardSize) * 0.4}px; 
             background: rgba(255,255,255,0.1); 
-            border: 2px solid #00bcd4; 
-            color: white; 
+border: 2px solid #0D9488;
+            color: #1C1917;
             cursor: pointer; 
             border-radius: 10px; 
             transition: all 0.3s;
@@ -618,7 +641,7 @@ function flipCard(index) {
     
     const card = document.getElementsByClassName('memory-card')[index];
     card.textContent = memoryCards[index];
-    card.style.background = 'rgba(0, 188, 212, 0.3)';
+    card.style.background = 'rgba(13, 148, 136, 0.25)';
     flippedCards.push(index);
     
     if (flippedCards.length === 2) {
@@ -631,7 +654,7 @@ function flipCard(index) {
                 matchedPairs++;
                 document.getElementById('memoryScore').textContent = matchedPairs;
                 flippedCards.forEach(i => {
-                    document.getElementsByClassName('memory-card')[i].style.background = 'rgba(0, 188, 212, 0.5)';
+                    document.getElementsByClassName('memory-card')[i].style.background = 'rgba(13, 148, 136, 0.25)';
                 });
                 
                 if (matchedPairs === totalPairs) {
@@ -646,7 +669,7 @@ function flipCard(index) {
                 flippedCards.forEach(i => {
                     const card = document.getElementsByClassName('memory-card')[i];
                     card.textContent = '?';
-                    card.style.background = 'rgba(255,255,255,0.1)';
+                    card.style.background = '#FAFAF9';
                 });
             }
             flippedCards = [];

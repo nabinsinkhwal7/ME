@@ -43,7 +43,7 @@ A free public platform connecting blood donors with those in need during emergen
 - ⚡ Quick Access by Blood Group & Location
 - 📱 Direct Contact via Phone/WhatsApp
 
-**Live at**: [bdr.nabinsinkhwal.com.np](https://bdr.sinkhwalservices.com.np)
+**Live at**: [bdr.nabinsinkhwal.com.np](https://bdr.nabinsinkhwal.com.np)
 
 ### School360
 Complete billing and management system for educational institutions featuring:

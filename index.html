@@ -45,7 +45,7 @@
     </script>
 </head>
 <body>
-    <a class="skip-link" href="#projects-section" aria-label="Skip to content">Skip to content</a>
+    <a class="skip-link" href="#about-section" aria-label="Skip to content">Skip to content</a>
     <div class="theme-toggle-wrap" aria-label="Theme">
         <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle light/dark theme">
             <span class="theme-icon theme-icon-sun" aria-hidden="true">☀️</span>
@@ -54,7 +54,6 @@
     </div>
     <header class="site-nav" role="navigation" aria-label="Main Navigation">
         <nav>
-            <a href="#projects-section">Projects</a>
             <a href="#about-section">About</a>
             <a href="CV_Nabin_Sinkhwal.pdf" target="_blank" rel="noopener" download>Resume</a>
             <a href="mailto:nsinkhwal@gmail.com">Hire Me</a>
@@ -94,12 +93,12 @@
     <div class="games-section">
         <h2 class="games-title">🎮 Play some games and relax</h2>
         <div class="games-grid">
-            <div class="game-card" onclick="openGame('tictactoe')">
+            <div class="game-card" role="button" tabindex="0" onclick="openGame('tictactoe')" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openGame('tictactoe'); }">
                 <div class="game-icon">⭕</div>
                 <h3>Tic-Tac-Toe</h3>
                 <p>Classic 3x3 strategy game</p>
             </div>
-            <div class="game-card" onclick="openGame('memory')">
+            <div class="game-card" role="button" tabindex="0" onclick="openGame('memory')" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openGame('memory'); }">
                 <div class="game-icon">🧠</div>
                 <h3>Memory Game</h3>
                 <p>Test your memory skills</p>
@@ -138,48 +137,6 @@
            </div>
        </div>
    </div>
-    <!-- Recent Projects Section -->
-    <div id="projects-section" class="projects-section">
-        <div class="projects-content">
-            <h2 class="projects-title">Recent Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" onclick="openProjectDetails('bdr')">
-                    <div class="project-icon">🩸</div>
-                    <h3>BDR - Blood Donor Registry</h3>
-                    <p>Free public platform connecting blood donors with those in need during emergencies. A life-saving service with privacy protection and instant access.</p>
-                    <div class="project-tech-tags">
-                        <span class="tech-tag">🩸 Emergency Blood Search</span>
-                        <span class="tech-tag">🆓 Completely Free Service</span>
-                        <span class="tech-tag">🔒 Privacy Protected</span>
-                        <span class="tech-tag">⚡ Quick Access by Location</span>
-                        <span class="tech-tag">📱 Direct Contact System</span>
-                    </div>
-                </div>
-                
-                <div class="project-card" onclick="openProjectDetails('school360')">
-                    <div class="project-icon">🏫</div>
-                    <h3>School360</h3>
-                    <p>Digital solution transforming student fee & billing management from manual record-keeping to automated processes for educational institutions</p>
-                    <div class="project-tech-tags">
-                        <span class="tech-tag">📊 Student Fee Management</span>
-                        <span class="tech-tag">🧾 Claim Bill Generation</span>
-                        <span class="tech-tag">💰 Automated Payment Processing</span>
-                        <span class="tech-tag">📋 Replace Manual Ledgers</span>
-                        <span class="tech-tag">🔍 Instant Record Search</span>
-                        <span class="tech-tag">📱 Digital Receipt System</span>
-                    </div>
-                </div>
-                
-                <div class="project-card coming-soon">
-                    <div class="project-icon">🚀</div>
-                    <h3>More Projects</h3>
-                    <p>Exciting new projects coming soon!</p>
-                    <div class="project-status">Coming Soon</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
    <!-- Footer CTA -->
    <div class="footer-cta-section">
        <h2 class="footer-cta-title">Ready to Transform Your Ideas Into Reality?</h2>
